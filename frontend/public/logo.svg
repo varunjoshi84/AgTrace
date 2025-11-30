@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AgTrace – Live Supply Chain Tracking">
+  <title>AgTrace – From Farm to Table, Tracked Live</title>
+
+  <defs>
+    <!-- Circular mask so everything outside the circle is invisible -->
+    <clipPath id="circleClip">
+      <circle cx="200" cy="200" r="185"/>
+    </clipPath>
+  </defs>
+
+  <!-- Transparent background + centered content -->
+  <g clip-path="url(#circleClip)">
+
+    <!-- Title -->
+    <text x="200" y="80" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="bold" fill="#065F46" text-anchor="middle">
+      AgTrace
+    </text>
+
+    <!-- Animated Journey Group -->
+    <g transform="translate(50,140)">
+
+      <!-- Stage Dots -->
+      <circle cx="0"   cy="30" r="14" fill="#10B981"/>
+      <circle cx="100" cy="30" r="14" fill="#10B981"/>
+      <circle cx="200" cy="30" r="14" fill="#10B981"/>
+      <circle cx="300" cy="30" r="14" fill="#10B981"/>
+
+      <!-- Icons at each stage -->
+      <!-- 1. Packing Crate -->
+      <g transform="translate(-10,18)">
+        <rect x="0" y="0" width="20" height="20" fill="#6B7280" rx="2"/>
+        <rect x="4" y="4" width="12" height="12" fill="#E5E7EB"/>
+        <rect x="6" y="6" width="8" height="8" fill="#6B7280"/>
+      </g>
+
+      <!-- 2. Truck -->
+      <g transform="translate(90,16)">
+        <rect x="0" y="8" width="20" height="10" fill="#1F2937" rx="2"/>
+        <circle cx="5" cy="20" r="4" fill="#1F2937"/>
+        <circle cx="15" cy="20" r="4" fill="#1F2937"/>
+      </g>
+
+      <!-- 3. Market/Store -->
+      <g transform="translate(190,18)">
+        <path d="M0,14 L10,0 L20,14 Z" fill="#DC2626"/>
+        <rect x="4" y="14" width="12" height="10" fill="#991B1B"/>
+      </g>
+
+      <!-- 4. Customer -->
+      <g transform="translate(292,20)">
+        <circle cx="10" cy="6" r="8" fill="#F59E0B"/>
+        <rect x="5" y="14" width="10" height="10" fill="#F59E0B"/>
+      </g>
+
+      <!-- Moving Truck (the hero!) -->
+      <g id="moving-truck">
+        <rect x="0" y="24" width="26" height="14" fill="#10B981" rx="4"/>
+        <rect x="3" y="19" width="10" height="5" fill="#059669"/>
+        <circle cx="6" cy="38" r="5" fill="#064E3B"/>
+        <circle cx="20" cy="38" r="5" fill="#064E3B"/>
+      </g>
+
+      <!-- Dashed path line -->
+      <path d="M15,30 H285" stroke="#9CA3AF" stroke-width="4" stroke-dasharray="10,8"/>
+
+      <!-- Smooth curved path for the truck to follow -->
+      <path id="journey-path" d="M0,30 Q100,5 200,30 T400,30" fill="none"/>
+
+      <!-- Animation: truck drives forever -->
+      <animateMotion
+        href="#moving-truck"
+        dur="7s"
+        repeatCount="indefinite"
+        rotate="auto">
+        <mpath href="#journey-path"/>
+      </animateMotion>
+    </g>
+
+    <!-- Stage labels (slightly smaller to fit circle) -->
+    <text x="50"  y="340" font-size="16" fill="#374151" text-anchor="middle" font-weight="600">Packing</text>
+    <text x="150" y="340" font-size="16" fill="#374151" text-anchor="middle" font-weight="600">Transport</text>
+    <text x="250" y="340" font-size="16" fill="#374151" text-anchor="middle" font-weight="600">Market</text>
+    <text x="350" y="340" font-size="16" fill="#374151" text-anchor="middle" font-weight="600">Delivered</text>
+
+    <!-- Tagline -->
+    <text x="200" y="380" font-size="18" fill="#059669" text-anchor="middle" font-weight="700">
+      From Farm to Table — Tracked Live
+    </text>
+  </g>
+</svg>
