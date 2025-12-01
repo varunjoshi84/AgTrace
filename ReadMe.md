@@ -1,3 +1,5 @@
+This is sem 5 project of node and react
+
 # AgTrace – Full-Stack Supply Chain Transparency Platform
 
 AgTrace is a modern, production-ready web application that brings complete visibility to agricultural supply chains – from farm to customer – using QR codes and role-based tracking.
