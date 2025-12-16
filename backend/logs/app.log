@@ -1,0 +1,1526 @@
+[2025-12-08T16:44:27.428Z] Request: GET /
+[2025-12-08T16:45:04.953Z] Request: GET /api/auth
+[2025-12-08T16:46:45.054Z] Request: GET /
+[2025-12-08T16:47:21.826Z] Request: POST /api/auth/register
+[2025-12-08T16:47:34.019Z] Request: POST /api/auth/register
+[2025-12-08T16:47:34.388Z] Request: POST /api/auth/register
+[2025-12-08T16:47:34.758Z] Request: POST /api/auth/register
+[2025-12-08T16:47:39.562Z] Request: POST /api/auth/register
+[2025-12-08T16:47:47.855Z] Request: POST /api/auth/register
+[2025-12-08T16:47:53.496Z] Request: POST /api/auth/register
+[2025-12-08T16:48:01.355Z] Request: GET /api/auth
+[2025-12-08T16:48:03.958Z] Request: POST /api/auth/login
+[2025-12-08T16:48:12.580Z] Request: POST /api/auth/login
+[2025-12-08T16:48:19.605Z] Request: POST /api/auth/login
+[2025-12-08T16:48:24.937Z] Request: POST /api/auth/register
+[2025-12-08T16:48:30.591Z] Request: POST /api/auth/register
+[2025-12-08T16:48:37.937Z] Request: POST /api/auth/register
+[2025-12-08T16:48:37.977Z] Request: POST /api/auth/register
+[2025-12-08T16:48:38.014Z] Request: POST /api/auth/register
+[2025-12-08T16:49:03.568Z] Request: POST /api/products
+[2025-12-08T16:49:21.492Z] Request: DELETE /api/products/6937017fa134c3aa6c9b87c6
+[2025-12-08T16:49:26.770Z] Request: POST /api/auth/login
+[2025-12-08T16:49:32.679Z] Request: POST /api/products
+[2025-12-08T16:49:39.129Z] Request: POST /api/transport
+[2025-12-08T16:49:44.389Z] Request: PUT /api/products/6937017fa134c3aa6c9b87c6
+[2025-12-08T16:49:49.001Z] Request: POST /api/auth/login
+[2025-12-08T16:49:54.971Z] Request: POST /api/warehouse
+[2025-12-08T16:49:59.634Z] Request: POST /api/auth/login
+[2025-12-08T16:50:06.177Z] Request: POST /api/retail
+[2025-12-08T16:50:11.636Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf
+[2025-12-08T16:50:16.698Z] Request: GET /api/customer/track/6937017fa134c3aa6c9b87c6
+[2025-12-08T16:50:23.900Z] Request: POST /api/auth/login
+[2025-12-08T16:50:30.251Z] Request: POST /api/products
+[2025-12-08T16:50:39.825Z] Request: POST /api/auth/login
+[2025-12-08T16:50:44.495Z] Request: GET /api/admin/users
+[2025-12-08T16:50:50.260Z] Request: DELETE /api/products/6937017fa134c3aa6c9b87c6
+[2025-12-08T16:50:56.045Z] Request: POST /api/products
+[2025-12-08T16:51:02.507Z] Request: POST /api/products
+[2025-12-08T16:51:07.653Z] Request: POST /api/transport
+[2025-12-08T16:51:14.814Z] Request: POST /api/retail
+[2025-12-08T16:51:45.998Z] Request: GET /api/customer/track/507f1f77bcf86cd799439011
+[2025-12-08T16:51:51.776Z] Request: PUT /api/retail/507f1f77bcf86cd799439011
+[2025-12-08T16:52:02.253Z] Request: GET /api/admin/report
+[2025-12-08T16:52:25.057Z] Request: POST /api/transport
+[2025-12-08T16:52:31.020Z] Request: POST /api/auth/logout
+[2025-12-08T16:52:36.592Z] Request: POST /api/products
+[2025-12-08T16:52:42.003Z] Request: POST /api/products
+[2025-12-08T16:52:54.492Z] Request: GET /api/customer/track/6937026150ab2c414345ba2c
+[2025-12-08T16:53:13.837Z] Request: POST /api/transport
+[2025-12-08T16:53:22.427Z] Request: POST /api/auth/login
+[2025-12-08T16:53:28.714Z] Request: POST /api/auth/login
+[2025-12-08T17:06:29.611Z] Request: GET /
+[2025-12-08T17:07:00.733Z] Request: POST /api/auth/register
+[2025-12-08T17:07:01.225Z] User registered: qa-farmer@test.com with role Farmer
+[2025-12-08T17:07:07.689Z] Request: POST /api/auth/login
+[2025-12-08T17:07:08.143Z] User logged in: qa-farmer@test.com
+[2025-12-08T17:07:13.678Z] Request: POST /api/auth/login
+[2025-12-08T17:07:14.131Z] Failed login attempt for user: qa-farmer@test.com - invalid password
+[2025-12-08T17:07:19.744Z] Request: GET /api/farmer/me
+[2025-12-08T17:07:24.696Z] Request: PUT /api/farmer/me
+[2025-12-08T17:07:31.364Z] Request: POST /api/products
+[2025-12-08T17:07:40.341Z] Request: POST /api/auth/register
+[2025-12-08T17:07:40.791Z] User registered: qa-transporter@test.com with role Transporter
+[2025-12-08T17:07:41.013Z] Request: POST /api/auth/login
+[2025-12-08T17:07:41.461Z] User logged in: qa-transporter@test.com
+[2025-12-08T17:07:46.236Z] Request: POST /api/auth/register
+[2025-12-08T17:07:51.870Z] Request: POST /api/auth/register
+[2025-12-08T17:07:52.329Z] User registered: qa-transporter2@test.com with role Transporter
+[2025-12-08T17:07:59.420Z] Request: POST /api/auth/login
+[2025-12-08T17:07:59.872Z] User logged in: qa-transporter2@test.com
+[2025-12-08T17:08:09.911Z] Request: POST /api/transport
+[2025-12-08T17:08:19.338Z] Request: POST /api/transport
+[2025-12-08T17:08:25.043Z] Request: POST /api/transport
+[2025-12-08T17:08:32.339Z] Request: POST /api/auth/login
+[2025-12-08T17:08:32.341Z] Failed login attempt for non-existent user: wrong@test.com
+[2025-12-08T17:08:32.377Z] Request: POST /api/auth/login
+[2025-12-08T17:08:32.411Z] Request: POST /api/auth/login
+[2025-12-08T17:08:32.448Z] Request: POST /api/auth/login
+[2025-12-08T17:08:32.482Z] Request: POST /api/auth/login
+[2025-12-08T17:08:32.518Z] Request: POST /api/auth/login
+[2025-12-08T17:08:41.874Z] Request: POST /api/transport
+[2025-12-08T17:08:47.747Z] Request: POST /api/transport
+[2025-12-08T17:08:54.133Z] Request: GET /api/customer/track/693705d336db1528f499dd29
+[2025-12-08T17:08:59.833Z] Request: GET /api/customer/track/invalidid
+[2025-12-08T17:09:07.128Z] Request: POST /api/auth/register
+[2025-12-08T17:09:07.620Z] User registered: qa-admin@test.com with role Admin
+[2025-12-08T17:09:07.888Z] Request: POST /api/auth/login
+[2025-12-08T17:09:14.177Z] Request: GET /api/admin/users
+[2025-12-08T17:09:28.062Z] Request: GET /api/admin/report
+[2025-12-08T17:09:39.928Z] Request: POST /api/auth/login
+[2025-12-08T17:09:39.965Z] Request: GET /api/admin/report
+[2025-12-08T17:09:57.808Z] Request: POST /api/auth/login
+[2025-12-08T17:10:06.413Z] Request: POST /api/products
+[2025-12-08T17:10:16.896Z] Request: DELETE /api/products/693705d336db1528f499dd29
+[2025-12-08T18:18:16.693Z] Request: POST /api/auth/register
+[2025-12-08T18:18:17.182Z] User registered: varunpndey@outlook.com with role Customer
+[2025-12-08T18:18:24.217Z] Request: POST /api/auth/login
+[2025-12-08T18:18:24.679Z] User logged in: varunpndey@outlook.com
+[2025-12-08T18:20:07.872Z] Request: POST /api/auth/logout
+[2025-12-08T18:20:07.878Z] User logged out: Varun Joshi
+[2025-12-08T18:21:47.462Z] Request: POST /api/auth/login
+[2025-12-08T18:21:47.503Z] Failed login attempt for non-existent user: farmer@gmail.com
+[2025-12-08T18:22:16.168Z] Request: POST /api/auth/register
+[2025-12-08T18:22:16.646Z] User registered: farmerone@gmail.com with role Farmer
+[2025-12-08T18:22:31.996Z] Request: POST /api/auth/login
+[2025-12-08T18:22:32.453Z] User logged in: farmerone@gmail.com
+[2025-12-08T18:22:38.940Z] Request: POST /api/auth/logout
+[2025-12-08T18:22:38.940Z] User logged out: farmer one
+[2025-12-08T19:14:17.987Z] Request: GET /health
+[2025-12-08T19:14:26.132Z] Request: POST /api/auth/register
+[2025-12-08T19:14:37.309Z] Request: POST /api/auth/login
+[2025-12-08T19:14:37.317Z] Failed login attempt for user: farmer@test.com - invalid password
+[2025-12-08T19:14:47.039Z] Request: POST /api/auth/register
+[2025-12-08T19:14:47.526Z] User registered: qafarmer@test.com with role Farmer
+[2025-12-08T19:14:54.375Z] Request: POST /api/auth/login
+[2025-12-08T19:14:54.834Z] User logged in: qafarmer@test.com
+[2025-12-08T19:15:26.694Z] Request: POST /api/farmer/products
+[2025-12-08T19:15:50.974Z] Request: GET /api/customer/track-by-code/PC1765221326753ZX8ZD
+[2025-12-08T19:16:15.489Z] Request: POST /api/auth/register
+[2025-12-08T19:16:16.055Z] User registered: qatransporter@test.com with role Transporter
+[2025-12-08T19:16:43.711Z] Request: POST /api/auth/login
+[2025-12-08T19:16:44.164Z] User logged in: qatransporter@test.com
+[2025-12-08T19:17:31.109Z] Request: GET /api/transport/available-products
+[2025-12-08T19:17:58.505Z] Request: POST /api/transport
+[2025-12-08T19:18:12.630Z] Request: GET /api/customer/track-by-code/PC1765221326753ZX8ZD
+[2025-12-08T19:19:42.844Z] Request: PUT /api/transport/693724666ec12ca65eddaaf6/complete
+[2025-12-08T19:19:53.505Z] Request: GET /api/customer/track-by-code/PC1765221326753ZX8ZD
+[2025-12-08T19:20:37.799Z] Request: GET /api/farmer/products
+[2025-12-08T19:21:27.971Z] Request: GET /api/customer/track-by-code/PC1765221326753ZX8ZD
+[2025-12-08T19:21:38.743Z] Request: GET /api/customer/track-by-code/PC1765221326753ZX8ZD
+[2025-12-08T19:22:49.873Z] Request: POST /api/auth/register
+[2025-12-08T19:22:49.951Z] Request: POST /api/auth/register
+[2025-12-08T19:22:49.989Z] Request: POST /api/auth/register
+[2025-12-08T19:22:50.028Z] Request: POST /api/auth/register
+[2025-12-08T19:22:50.068Z] Request: POST /api/auth/login
+[2025-12-08T19:22:50.070Z] Failed login attempt for user: farmer@test.com - invalid password
+[2025-12-08T19:22:50.110Z] Request: POST /api/farmer/products
+[2025-12-08T19:22:50.178Z] Request: GET /api/customer/track-by-code/PC1765221770116FFI0U
+[2025-12-08T19:22:50.234Z] Request: POST /api/auth/login
+[2025-12-08T19:22:50.237Z] Failed login attempt for user: transporter@test.com - invalid password
+[2025-12-08T19:22:50.278Z] Request: GET /api/transport/available-products
+[2025-12-08T19:22:50.323Z] Request: POST /api/transport
+[2025-12-08T19:22:50.381Z] Request: PUT /api/transport/6937258a6ec12ca65eddab21/complete
+[2025-12-08T19:22:50.434Z] Request: GET /api/customer/track-by-code/PC1765221770116FFI0U
+[2025-12-09T07:12:46.769Z] Request: POST /api/auth/login
+[2025-12-09T07:12:47.137Z] User logged in: varunpndey@outlook.com
+[2025-12-09T07:12:56.633Z] Request: POST /api/auth/logout
+[2025-12-09T07:12:56.635Z] User logged out: Varun Joshi
+[2025-12-09T07:13:05.538Z] Request: POST /api/auth/login
+[2025-12-09T07:13:05.829Z] User logged in: farmerone@gmail.com
+[2025-12-09T07:13:05.853Z] Request: GET /api/farmer/products
+[2025-12-09T07:13:05.875Z] Request: GET /api/farmer/products
+[2025-12-09T07:14:03.969Z] Request: POST /api/farmer/products
+[2025-12-09T07:14:04.001Z] Request: GET /api/farmer/products
+[2025-12-09T07:15:27.841Z] Request: GET /api/farmer/products
+[2025-12-09T07:15:28.303Z] Request: GET /api/farmer/products
+[2025-12-09T07:37:26.109Z] Request: GET /api/farmer/products
+[2025-12-09T07:37:26.475Z] Request: GET /api/farmer/products
+[2025-12-09T07:38:04.875Z] Request: POST /api/farmer/products
+[2025-12-09T07:38:04.913Z] Request: GET /api/farmer/products
+[2025-12-09T07:38:12.374Z] Request: GET /api/farmer/products
+[2025-12-09T07:38:12.386Z] Request: GET /api/farmer/products
+[2025-12-09T07:40:51.211Z] Request: POST /api/farmer/products
+[2025-12-09T07:40:51.247Z] Request: GET /api/farmer/products
+[2025-12-09T07:41:00.490Z] Request: POST /api/auth/logout
+[2025-12-09T07:41:00.491Z] User logged out: farmer one
+[2025-12-09T07:41:29.068Z] Request: POST /api/auth/register
+[2025-12-09T07:41:29.528Z] User registered: retailer@gmail.com with role Retailer
+[2025-12-09T07:41:39.497Z] Request: POST /api/auth/login
+[2025-12-09T07:41:39.950Z] User logged in: retailer@gmail.com
+[2025-12-09T07:41:49.239Z] Request: POST /api/auth/logout
+[2025-12-09T07:41:49.240Z] User logged out: retailer
+[2025-12-09T07:42:15.499Z] Request: POST /api/auth/register
+[2025-12-09T07:42:15.956Z] User registered: transporter@gmail.com with role Transporter
+[2025-12-09T07:42:25.163Z] Request: POST /api/auth/login
+[2025-12-09T07:42:25.614Z] User logged in: transporter@gmail.com
+[2025-12-09T07:42:30.440Z] Request: POST /api/auth/logout
+[2025-12-09T07:42:30.441Z] User logged out: transporter
+[2025-12-13T11:22:50.274Z] Request: POST /api/auth/logout
+[2025-12-13T11:22:50.277Z] User logged out: unknown
+[2025-12-13T11:22:55.805Z] Request: POST /api/auth/login
+[2025-12-13T11:22:56.288Z] User logged in: varunpndey@outlook.com
+[2025-12-13T11:23:00.944Z] Request: POST /api/auth/logout
+[2025-12-13T11:23:00.944Z] User logged out: Varun Joshi
+[2025-12-13T11:23:13.066Z] Request: POST /api/auth/login
+[2025-12-13T11:23:13.518Z] User logged in: farmerone@gmail.com
+[2025-12-13T11:23:13.540Z] Request: GET /api/farmer/products
+[2025-12-13T11:23:13.569Z] Request: GET /api/farmer/products
+[2025-12-13T11:24:36.948Z] Request: POST /api/auth/logout
+[2025-12-13T11:24:36.950Z] User logged out: farmer one
+[2025-12-13T11:24:45.335Z] Request: POST /api/auth/login
+[2025-12-13T11:24:45.815Z] User logged in: retailer@gmail.com
+[2025-12-13T11:24:45.843Z] Request: GET /api/retail/available-products
+[2025-12-13T11:24:45.847Z] Request: GET /api/retail
+[2025-12-13T11:24:45.856Z] Request: GET /api/retail/available-products
+[2025-12-13T11:24:45.858Z] Request: GET /api/retail
+[2025-12-13T11:25:11.427Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf
+[2025-12-13T11:25:11.467Z] Request: GET /api/retail/available-products
+[2025-12-13T11:25:11.469Z] Request: GET /api/retail
+[2025-12-13T11:25:51.764Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf
+[2025-12-13T11:25:51.774Z] Request: GET /api/retail
+[2025-12-13T11:25:51.776Z] Request: GET /api/retail/available-products
+[2025-12-13T11:28:28.227Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf/sell-out
+[2025-12-13T11:28:29.494Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf/sell-out
+[2025-12-13T11:28:30.172Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf/sell-out
+[2025-12-13T11:28:30.344Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf/sell-out
+[2025-12-13T11:28:30.470Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf/sell-out
+[2025-12-13T11:28:35.713Z] Request: POST /api/auth/logout
+[2025-12-13T11:28:35.715Z] User logged out: unknown
+[2025-12-13T11:28:41.756Z] Request: POST /api/auth/login
+[2025-12-13T11:28:42.243Z] User logged in: retailer@gmail.com
+[2025-12-13T11:28:42.271Z] Request: GET /api/retail/available-products
+[2025-12-13T11:28:42.274Z] Request: GET /api/retail
+[2025-12-13T11:28:42.282Z] Request: GET /api/retail/available-products
+[2025-12-13T11:28:42.288Z] Request: GET /api/retail
+[2025-12-13T11:28:59.956Z] Request: PUT /api/retail/693701bea134c3aa6c9b87cf/sell-out
+[2025-12-13T11:28:59.999Z] Request: GET /api/retail/available-products
+[2025-12-13T11:29:00.000Z] Request: GET /api/retail
+[2025-12-13T11:29:41.807Z] Request: POST /api/auth/logout
+[2025-12-13T11:29:41.808Z] User logged out: retailer
+[2025-12-13T11:29:48.038Z] Request: POST /api/auth/login
+[2025-12-13T11:29:48.493Z] User logged in: varunpndey@outlook.com
+[2025-12-13T11:30:01.326Z] Request: POST /api/auth/logout
+[2025-12-13T11:30:01.326Z] User logged out: Varun Joshi
+[2025-12-13T11:30:08.528Z] Request: POST /api/auth/login
+[2025-12-13T11:30:08.983Z] User logged in: retailer@gmail.com
+[2025-12-13T11:30:09.006Z] Request: GET /api/retail/available-products
+[2025-12-13T11:30:09.008Z] Request: GET /api/retail
+[2025-12-13T11:30:09.011Z] Request: GET /api/retail/available-products
+[2025-12-13T11:30:09.014Z] Request: GET /api/retail
+[2025-12-13T11:30:21.083Z] Request: POST /api/auth/logout
+[2025-12-13T11:30:21.084Z] User logged out: retailer
+[2025-12-13T11:30:27.571Z] Request: POST /api/auth/login
+[2025-12-13T11:30:27.576Z] Failed login attempt for non-existent user: farmer@gmail.com
+[2025-12-13T11:30:30.174Z] Request: POST /api/auth/login
+[2025-12-13T11:30:30.178Z] Failed login attempt for non-existent user: farmer@gmail.com
+[2025-12-13T11:30:34.986Z] Request: POST /api/auth/login
+[2025-12-13T11:30:53.113Z] Request: POST /api/auth/login
+[2025-12-13T11:30:53.591Z] User logged in: farmerone@gmail.com
+[2025-12-13T11:30:53.617Z] Request: GET /api/farmer/products
+[2025-12-13T11:30:53.631Z] Request: GET /api/farmer/products
+[2025-12-13T11:31:20.562Z] Request: POST /api/farmer/products
+[2025-12-13T11:31:20.587Z] Request: GET /api/farmer/products
+[2025-12-13T11:31:23.785Z] Request: POST /api/auth/logout
+[2025-12-13T11:31:23.786Z] User logged out: farmer one
+[2025-12-13T11:31:32.570Z] Request: POST /api/auth/login
+[2025-12-13T11:31:33.022Z] User logged in: retailer@gmail.com
+[2025-12-13T11:31:33.046Z] Request: GET /api/retail/available-products
+[2025-12-13T11:31:33.048Z] Request: GET /api/retail
+[2025-12-13T11:31:33.050Z] Request: GET /api/retail/available-products
+[2025-12-13T11:31:33.053Z] Request: GET /api/retail
+[2025-12-13T11:31:35.934Z] Request: POST /api/auth/logout
+[2025-12-13T11:31:35.934Z] User logged out: retailer
+[2025-12-13T11:31:42.858Z] Request: POST /api/auth/login
+[2025-12-13T11:31:43.309Z] User logged in: transporter@gmail.com
+[2025-12-13T11:31:43.332Z] Request: GET /api/transport/available-products
+[2025-12-13T11:31:43.333Z] Request: GET /api/transport
+[2025-12-13T11:31:43.341Z] Request: GET /api/transport/available-products
+[2025-12-13T11:31:43.342Z] Request: GET /api/transport
+[2025-12-13T11:32:01.545Z] Request: POST /api/transport
+[2025-12-13T11:32:01.566Z] Request: GET /api/transport
+[2025-12-13T11:32:01.568Z] Request: GET /api/transport/available-products
+[2025-12-13T11:32:30.130Z] Request: POST /api/transport
+[2025-12-13T11:32:30.145Z] Request: GET /api/transport
+[2025-12-13T11:32:30.147Z] Request: GET /api/transport/available-products
+[2025-12-13T11:32:39.400Z] Request: POST /api/auth/logout
+[2025-12-13T11:32:39.400Z] User logged out: transporter
+[2025-12-13T11:33:15.551Z] Request: POST /api/auth/register
+[2025-12-13T11:33:16.006Z] User registered: warehouse@gmail.com with role Warehouse
+[2025-12-13T11:33:27.785Z] Request: POST /api/auth/login
+[2025-12-13T11:33:28.236Z] User logged in: warehouse@gmail.com
+[2025-12-13T11:33:28.254Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:33:28.256Z] Request: GET /api/warehouse
+[2025-12-13T11:33:28.262Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:33:28.262Z] Request: GET /api/warehouse
+[2025-12-13T11:33:41.791Z] Request: POST /api/warehouse
+[2025-12-13T11:33:41.804Z] Request: GET /api/warehouse
+[2025-12-13T11:33:41.806Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:01.408Z] Request: POST /api/warehouse
+[2025-12-13T11:34:01.418Z] Request: GET /api/warehouse
+[2025-12-13T11:34:01.419Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:04.401Z] Request: PUT /api/warehouse/693701b2a134c3aa6c9b87cc/dispatch
+[2025-12-13T11:34:04.413Z] Request: GET /api/warehouse
+[2025-12-13T11:34:04.414Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:11.409Z] Request: POST /api/warehouse
+[2025-12-13T11:34:11.419Z] Request: GET /api/warehouse
+[2025-12-13T11:34:11.423Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:18.467Z] Request: PUT /api/warehouse/693701b2a134c3aa6c9b87cc/dispatch
+[2025-12-13T11:34:18.481Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:18.485Z] Request: GET /api/warehouse
+[2025-12-13T11:34:21.298Z] Request: PUT /api/warehouse/693701b2a134c3aa6c9b87cc/dispatch
+[2025-12-13T11:34:21.308Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:21.309Z] Request: GET /api/warehouse
+[2025-12-13T11:34:24.682Z] Request: PUT /api/warehouse/693d4f29240c184e13ef7530/dispatch
+[2025-12-13T11:34:24.695Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:24.697Z] Request: GET /api/warehouse
+[2025-12-13T11:34:28.931Z] Request: PUT /api/warehouse/693d4f29240c184e13ef7530/dispatch
+[2025-12-13T11:34:28.943Z] Request: GET /api/warehouse/available-products
+[2025-12-13T11:34:28.944Z] Request: GET /api/warehouse
+[2025-12-13T11:34:31.962Z] Request: POST /api/auth/logout
+[2025-12-13T11:34:31.962Z] User logged out: warehouse
+[2025-12-13T11:34:44.800Z] Request: POST /api/auth/login
+[2025-12-13T11:34:45.251Z] Failed login attempt for user: transporter@gmail.com - invalid password
+[2025-12-13T11:34:50.271Z] Request: POST /api/auth/login
+[2025-12-13T11:35:09.967Z] Request: POST /api/auth/register
+[2025-12-13T11:35:16.482Z] Request: POST /api/auth/register
+[2025-12-13T11:35:16.936Z] User registered: transporterone@gmail.com with role Transporter
+[2025-12-13T11:35:27.802Z] Request: POST /api/auth/login
+[2025-12-13T11:35:33.847Z] Request: POST /api/auth/login
+[2025-12-13T11:35:43.614Z] Request: POST /api/auth/login
+[2025-12-13T11:35:58.599Z] Request: POST /api/auth/login
+[2025-12-13T11:35:59.063Z] User logged in: transporterone@gmail.com
+[2025-12-13T11:35:59.087Z] Request: GET /api/transport/available-products
+[2025-12-13T11:35:59.090Z] Request: GET /api/transport
+[2025-12-13T11:35:59.103Z] Request: GET /api/transport/available-products
+[2025-12-13T11:35:59.104Z] Request: GET /api/transport
+[2025-12-13T11:36:04.283Z] Request: PUT /api/transport/693701a3a134c3aa6c9b87c9/complete
+[2025-12-13T11:36:04.314Z] Request: GET /api/transport/available-products
+[2025-12-13T11:36:04.315Z] Request: GET /api/transport
+[2025-12-13T11:36:10.033Z] Request: PUT /api/transport/693d4ece240c184e13ef7515/complete
+[2025-12-13T11:36:10.049Z] Request: GET /api/transport/available-products
+[2025-12-13T11:36:10.050Z] Request: GET /api/transport
+[2025-12-13T11:36:12.298Z] Request: PUT /api/transport/693d4eb1240c184e13ef750d/complete
+[2025-12-13T11:36:12.313Z] Request: GET /api/transport/available-products
+[2025-12-13T11:36:12.315Z] Request: GET /api/transport
+[2025-12-13T11:36:15.230Z] Request: POST /api/auth/logout
+[2025-12-13T11:36:15.232Z] User logged out: transporter
+[2025-12-13T11:36:23.435Z] Request: POST /api/auth/login
+[2025-12-13T11:36:23.887Z] User logged in: retailer@gmail.com
+[2025-12-13T11:36:23.910Z] Request: GET /api/retail/available-products
+[2025-12-13T11:36:23.911Z] Request: GET /api/retail
+[2025-12-13T11:36:23.915Z] Request: GET /api/retail/available-products
+[2025-12-13T11:36:23.915Z] Request: GET /api/retail
+[2025-12-13T11:36:41.818Z] Request: POST /api/retail
+[2025-12-13T11:36:41.833Z] Request: GET /api/retail
+[2025-12-13T11:36:41.835Z] Request: GET /api/retail/available-products
+[2025-12-13T11:36:58.488Z] Request: PUT /api/retail/693d4fc90e57507e376e4669
+[2025-12-13T11:36:58.498Z] Request: GET /api/retail/available-products
+[2025-12-13T11:36:58.500Z] Request: GET /api/retail
+[2025-12-13T11:37:10.781Z] Request: POST /api/auth/logout
+[2025-12-13T11:37:10.782Z] User logged out: retailer
+[2025-12-13T11:37:18.333Z] Request: POST /api/auth/login
+[2025-12-13T11:37:18.785Z] User logged in: varunpndey@outlook.com
+[2025-12-13T11:37:33.027Z] Request: GET /api/customer/track-by-code/PC1765221770116FFI0U
+[2025-12-15T07:48:32.005Z] Request: POST /api/auth/logout
+[2025-12-15T07:48:32.007Z] User logged out: unknown
+[2025-12-15T08:01:19.342Z] Request: POST /api/auth/login
+[2025-12-15T08:01:19.837Z] User logged in: transporter@gmail.com
+[2025-12-15T08:01:19.880Z] Request: GET /api/transport/available-products
+[2025-12-15T08:01:19.882Z] Request: GET /api/transport
+[2025-12-15T08:01:19.902Z] Request: GET /api/transport/available-products
+[2025-12-15T08:01:19.902Z] Request: GET /api/transport
+[2025-12-15T08:01:29.587Z] Request: POST /api/transport
+[2025-12-15T08:01:29.644Z] Request: GET /api/transport
+[2025-12-15T08:01:29.646Z] Request: GET /api/transport/available-products
+[2025-12-15T08:02:06.485Z] Request: POST /api/transport
+[2025-12-15T08:02:06.497Z] Request: GET /api/transport
+[2025-12-15T08:02:06.499Z] Request: GET /api/transport/available-products
+[2025-12-15T08:02:15.544Z] Request: PUT /api/transport/693fc07e580eeb6e4fc76dfb/complete
+[2025-12-15T08:02:15.561Z] Request: GET /api/transport/available-products
+[2025-12-15T08:02:15.563Z] Request: GET /api/transport
+[2025-12-15T08:02:44.692Z] Request: POST /api/auth/logout
+[2025-12-15T08:02:44.693Z] User logged out: transporter
+[2025-12-15T08:47:50.294Z] Request: POST /api/auth/register
+[2025-12-15T08:47:50.776Z] User registered: farmer2@gmail.com with role Farmer
+[2025-12-15T08:48:03.015Z] Request: POST /api/auth/login
+[2025-12-15T08:48:03.470Z] User logged in: farmer2@gmail.com
+[2025-12-15T08:48:03.503Z] Request: GET /api/farmer/products
+[2025-12-15T08:48:03.506Z] Request: GET /api/farmer/products
+[2025-12-15T08:48:35.712Z] Request: POST /api/farmer/products
+[2025-12-15T08:48:38.996Z] Request: POST /api/farmer/products
+[2025-12-15T08:48:42.055Z] Request: GET /api/farmer/products
+[2025-12-15T08:48:42.062Z] Request: GET /api/farmer/products
+[2025-12-15T08:49:01.818Z] Request: POST /api/farmer/products
+[2025-12-15T08:49:25.559Z] Request: GET /api/farmer/products
+[2025-12-15T08:49:25.566Z] Request: GET /api/farmer/products
+[2025-12-15T08:49:27.562Z] Request: GET /api/farmer/products
+[2025-12-15T08:49:27.565Z] Request: GET /api/farmer/products
+[2025-12-15T08:49:48.680Z] Request: POST /api/farmer/products
+[2025-12-15T08:49:53.818Z] Request: GET /api/farmer/products
+[2025-12-15T08:49:53.820Z] Request: GET /api/farmer/products
+[2025-12-15T08:49:55.759Z] Request: POST /api/auth/logout
+[2025-12-15T08:49:55.760Z] User logged out: unknown
+[2025-12-15T08:50:04.931Z] Request: POST /api/auth/login
+[2025-12-15T08:50:05.409Z] User logged in: farmer2@gmail.com
+[2025-12-15T08:50:05.430Z] Request: GET /api/farmer/products
+[2025-12-15T08:50:05.434Z] Request: GET /api/farmer/products
+[2025-12-15T08:50:24.575Z] Request: POST /api/farmer/products
+[2025-12-15T08:50:53.151Z] Request: POST /api/farmer/products
+[2025-12-15T08:50:58.109Z] Request: POST /api/farmer/products
+[2025-12-15T08:51:55.067Z] Request: POST /api/auth/login
+[2025-12-15T08:51:55.525Z] User logged in: farmer2@gmail.com
+[2025-12-15T08:51:55.551Z] Request: GET /api/farmer/products
+[2025-12-15T08:51:55.557Z] Request: GET /api/farmer/products
+[2025-12-15T08:52:12.351Z] Request: POST /api/farmer/products
+[2025-12-15T08:55:10.760Z] Request: POST /api/auth/login
+[2025-12-15T08:55:11.229Z] User logged in: farmer2@gmail.com
+[2025-12-15T08:55:11.255Z] Request: GET /api/farmer/products
+[2025-12-15T08:55:11.273Z] Request: GET /api/farmer/products
+[2025-12-15T08:55:35.912Z] Request: POST /api/farmer/products
+[2025-12-15T08:57:38.609Z] Request: POST /api/auth/logout
+[2025-12-15T08:57:38.610Z] User logged out: farmer2
+[2025-12-15T08:57:53.896Z] Request: POST /api/auth/register
+[2025-12-15T08:57:54.364Z] User registered: farmer3@gmail.com with role Farmer
+[2025-12-15T08:58:07.095Z] Request: POST /api/auth/login
+[2025-12-15T08:58:07.545Z] User logged in: farmer3@gmail.com
+[2025-12-15T08:58:07.564Z] Request: GET /api/farmer/products
+[2025-12-15T08:58:07.571Z] Request: GET /api/farmer/products
+[2025-12-15T08:58:28.760Z] Request: POST /api/farmer/products
+[2025-12-15T08:58:28.772Z] Request: GET /api/farmer/products
+[2025-12-15T09:00:21.691Z] Request: GET /api/farmer/products
+[2025-12-15T09:00:21.710Z] Request: GET /api/farmer/products
+[2025-12-15T09:00:51.410Z] Request: POST /api/auth/logout
+[2025-12-15T09:00:51.411Z] User logged out: farmer3
+[2025-12-15T09:00:59.813Z] Request: POST /api/auth/login
+[2025-12-15T09:01:00.267Z] User logged in: farmer3@gmail.com
+[2025-12-15T09:01:00.285Z] Request: GET /api/farmer/products
+[2025-12-15T09:01:00.291Z] Request: GET /api/farmer/products
+[2025-12-15T09:01:17.693Z] Request: POST /api/farmer/products
+[2025-12-15T09:01:17.704Z] Request: GET /api/farmer/products
+[2025-12-15T09:01:23.809Z] Request: GET /api/farmer/products
+[2025-12-15T09:01:23.816Z] Request: GET /api/farmer/products
+[2025-12-15T09:02:08.587Z] Request: GET /api/farmer/products
+[2025-12-15T09:02:08.598Z] Request: GET /api/farmer/products
+[2025-12-15T09:02:10.383Z] Request: GET /api/farmer/products
+[2025-12-15T09:02:10.384Z] Request: GET /api/farmer/products
+[2025-12-15T09:02:13.544Z] Request: POST /api/auth/logout
+[2025-12-15T09:02:13.546Z] User logged out: unknown
+[2025-12-15T09:02:20.465Z] Request: POST /api/auth/login
+[2025-12-15T09:02:20.936Z] User logged in: farmer3@gmail.com
+[2025-12-15T09:02:20.958Z] Request: GET /api/farmer/products
+[2025-12-15T09:02:20.979Z] Request: GET /api/farmer/products
+[2025-12-15T09:03:05.512Z] Request: POST /api/farmer/products
+[2025-12-15T09:03:05.531Z] Request: GET /api/farmer/products
+[2025-12-15T09:07:14.309Z] Request: GET /api/farmer/products
+[2025-12-15T09:07:14.315Z] Request: GET /api/farmer/products
+[2025-12-15T09:07:16.605Z] Request: GET /api/farmer/products
+[2025-12-15T09:07:16.606Z] Request: GET /api/farmer/products
+[2025-12-15T09:07:20.207Z] Request: POST /api/auth/logout
+[2025-12-15T09:07:20.208Z] User logged out: unknown
+[2025-12-15T09:07:27.643Z] Request: POST /api/auth/login
+[2025-12-15T09:07:28.112Z] User logged in: farmer3@gmail.com
+[2025-12-15T09:07:28.132Z] Request: GET /api/farmer/products
+[2025-12-15T09:07:28.148Z] Request: GET /api/farmer/products
+[2025-12-15T09:07:52.514Z] Request: POST /api/farmer/products
+[2025-12-15T09:07:52.542Z] Request: GET /api/farmer/products
+[2025-12-15T09:11:12.332Z] Request: GET /api/farmer/products
+[2025-12-15T09:11:12.348Z] Request: GET /api/farmer/products
+[2025-12-15T09:19:18.682Z] Request: POST /api/auth/logout
+[2025-12-15T09:19:18.690Z] User logged out: farmer3
+[2025-12-15T09:24:36.573Z] Request: GET /api/farmer/products
+[2025-12-15T09:24:36.575Z] Request: GET /api/farmer/products
+[2025-12-15T09:24:38.650Z] Request: POST /api/auth/logout
+[2025-12-15T09:24:38.651Z] User logged out: unknown
+[2025-12-15T09:24:47.758Z] Request: POST /api/auth/login
+[2025-12-15T09:24:47.778Z] Failed login attempt for non-existent user: farmer@gmail.com
+[2025-12-15T09:24:56.462Z] Request: POST /api/auth/login
+[2025-12-15T09:24:56.915Z] User logged in: farmerone@gmail.com
+[2025-12-15T09:24:56.936Z] Request: GET /api/farmer/products
+[2025-12-15T09:24:56.947Z] Request: GET /api/farmer/products
+[2025-12-15T09:25:26.245Z] Request: POST /api/farmer/products
+[2025-12-15T09:25:26.259Z] Request: GET /api/farmer/products
+[2025-12-15T09:25:48.771Z] User logged out: farmer one
+[2025-12-15T09:25:48.771Z] Request: POST /api/auth/logout
+[2025-12-15T09:25:58.292Z] Request: POST /api/auth/login
+[2025-12-15T09:25:58.743Z] User logged in: transporterone@gmail.com
+[2025-12-15T09:25:58.765Z] Request: GET /api/transport
+[2025-12-15T09:25:58.768Z] Request: GET /api/transport/available-products
+[2025-12-15T09:25:58.774Z] Request: GET /api/transport
+[2025-12-15T09:25:58.774Z] Request: GET /api/transport/available-products
+[2025-12-15T09:26:18.785Z] Request: POST /api/transport
+[2025-12-15T09:26:18.804Z] Request: GET /api/transport
+[2025-12-15T09:26:18.805Z] Request: GET /api/transport/available-products
+[2025-12-15T09:26:24.690Z] Request: PUT /api/transport/693fd43a66165d9975da68fd/complete
+[2025-12-15T09:26:24.706Z] Request: GET /api/transport/available-products
+[2025-12-15T09:26:24.708Z] Request: GET /api/transport
+[2025-12-15T09:26:34.054Z] Request: POST /api/auth/logout
+[2025-12-15T09:26:34.054Z] User logged out: transporter
+[2025-12-15T09:26:41.624Z] Request: POST /api/auth/login
+[2025-12-15T09:26:42.074Z] User logged in: warehouse@gmail.com
+[2025-12-15T09:26:42.094Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:26:42.097Z] Request: GET /api/warehouse
+[2025-12-15T09:26:42.100Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:26:42.102Z] Request: GET /api/warehouse
+[2025-12-15T09:27:05.619Z] Request: POST /api/warehouse
+[2025-12-15T09:27:05.631Z] Request: GET /api/warehouse
+[2025-12-15T09:27:05.632Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:27:15.440Z] Request: PUT /api/warehouse/693fd46966165d9975da6915/dispatch
+[2025-12-15T09:27:15.451Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:27:15.454Z] Request: GET /api/warehouse
+[2025-12-15T09:27:22.637Z] Request: PUT /api/warehouse/693fd46966165d9975da6915/dispatch
+[2025-12-15T09:27:22.649Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:27:22.651Z] Request: GET /api/warehouse
+[2025-12-15T09:27:26.486Z] Request: POST /api/auth/logout
+[2025-12-15T09:27:26.487Z] User logged out: warehouse
+[2025-12-15T09:27:36.106Z] Request: POST /api/auth/login
+[2025-12-15T09:27:36.556Z] User logged in: retailer@gmail.com
+[2025-12-15T09:27:36.577Z] Request: GET /api/retail/available-products
+[2025-12-15T09:27:36.579Z] Request: GET /api/retail
+[2025-12-15T09:27:36.583Z] Request: GET /api/retail/available-products
+[2025-12-15T09:27:36.584Z] Request: GET /api/retail
+[2025-12-15T09:27:55.645Z] Request: POST /api/retail
+[2025-12-15T09:27:55.657Z] Request: GET /api/retail
+[2025-12-15T09:27:55.658Z] Request: GET /api/retail/available-products
+[2025-12-15T09:28:19.151Z] Request: PUT /api/retail/693fd49b66165d9975da6931
+[2025-12-15T09:28:19.159Z] Request: GET /api/retail/available-products
+[2025-12-15T09:28:19.161Z] Request: GET /api/retail
+[2025-12-15T09:28:29.769Z] Request: POST /api/auth/logout
+[2025-12-15T09:28:29.769Z] User logged out: retailer
+[2025-12-15T09:28:34.405Z] Request: POST /api/auth/login
+[2025-12-15T09:28:39.623Z] Request: POST /api/auth/login
+[2025-12-15T09:28:51.408Z] Request: POST /api/auth/login
+[2025-12-15T09:29:13.104Z] Request: POST /api/auth/login
+[2025-12-15T09:29:13.119Z] Failed login attempt for non-existent user: varun@gmail.com
+[2025-12-15T09:39:31.247Z] Request: POST /api/auth/register
+[2025-12-15T09:39:31.760Z] User registered: user1@gmail.com with role Customer
+[2025-12-15T09:39:45.302Z] Request: POST /api/auth/login
+[2025-12-15T09:39:45.754Z] User logged in: user1@gmail.com
+[2025-12-15T09:40:14.365Z] Request: POST /api/auth/logout
+[2025-12-15T09:40:14.366Z] User logged out: user1
+[2025-12-15T09:40:23.929Z] Request: POST /api/auth/login
+[2025-12-15T09:40:24.383Z] User logged in: retailer@gmail.com
+[2025-12-15T09:40:24.403Z] Request: GET /api/retail/available-products
+[2025-12-15T09:40:24.406Z] Request: GET /api/retail
+[2025-12-15T09:40:24.420Z] Request: GET /api/retail/available-products
+[2025-12-15T09:40:24.420Z] Request: GET /api/retail
+[2025-12-15T09:40:44.933Z] Request: PUT /api/retail/693d4fc90e57507e376e4669/sell-out
+[2025-12-15T09:40:44.969Z] Request: GET /api/retail/available-products
+[2025-12-15T09:40:44.971Z] Request: GET /api/retail
+[2025-12-15T09:40:55.126Z] Request: POST /api/auth/logout
+[2025-12-15T09:40:55.126Z] User logged out: retailer
+[2025-12-15T09:41:05.626Z] Request: POST /api/auth/login
+[2025-12-15T09:41:06.075Z] User logged in: user1@gmail.com
+[2025-12-15T09:41:08.663Z] Request: GET /api/customer/track-by-code/PC1765221770116FFI0U
+[2025-12-15T09:42:09.527Z] Request: POST /api/auth/logout
+[2025-12-15T09:42:09.527Z] User logged out: user1
+[2025-12-15T09:43:43.214Z] Request: POST /api/auth/login
+[2025-12-15T09:43:43.667Z] User logged in: farmerone@gmail.com
+[2025-12-15T09:43:43.688Z] Request: GET /api/farmer/products
+[2025-12-15T09:43:43.694Z] Request: GET /api/farmer/products
+[2025-12-15T09:44:04.448Z] Request: POST /api/farmer/products
+[2025-12-15T09:44:04.464Z] Request: GET /api/farmer/products
+[2025-12-15T09:44:16.941Z] Request: POST /api/auth/logout
+[2025-12-15T09:44:16.941Z] User logged out: farmer one
+[2025-12-15T09:44:23.578Z] Request: POST /api/auth/login
+[2025-12-15T09:44:24.027Z] User logged in: transporter@gmail.com
+[2025-12-15T09:44:24.050Z] Request: GET /api/transport/available-products
+[2025-12-15T09:44:24.051Z] Request: GET /api/transport
+[2025-12-15T09:44:24.058Z] Request: GET /api/transport/available-products
+[2025-12-15T09:44:24.059Z] Request: GET /api/transport
+[2025-12-15T09:44:39.038Z] Request: POST /api/transport
+[2025-12-15T09:44:39.051Z] Request: GET /api/transport
+[2025-12-15T09:44:39.052Z] Request: GET /api/transport/available-products
+[2025-12-15T09:44:44.309Z] Request: PUT /api/transport/693fd88757e0e74665e4fc57/complete
+[2025-12-15T09:44:44.323Z] Request: GET /api/transport/available-products
+[2025-12-15T09:44:44.325Z] Request: GET /api/transport
+[2025-12-15T09:44:50.075Z] Request: POST /api/auth/logout
+[2025-12-15T09:44:50.075Z] User logged out: transporter
+[2025-12-15T09:44:56.842Z] Request: POST /api/auth/login
+[2025-12-15T09:44:57.293Z] User logged in: warehouse@gmail.com
+[2025-12-15T09:44:57.314Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:44:57.316Z] Request: GET /api/warehouse
+[2025-12-15T09:44:57.320Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:44:57.321Z] Request: GET /api/warehouse
+[2025-12-15T09:45:20.934Z] Request: POST /api/warehouse
+[2025-12-15T09:45:20.947Z] Request: GET /api/warehouse
+[2025-12-15T09:45:20.948Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:45:27.422Z] Request: POST /api/auth/logout
+[2025-12-15T09:45:27.422Z] User logged out: warehouse
+[2025-12-15T09:45:38.853Z] Request: POST /api/auth/login
+[2025-12-15T09:45:39.302Z] User logged in: retailer@gmail.com
+[2025-12-15T09:45:39.322Z] Request: GET /api/retail/available-products
+[2025-12-15T09:45:39.324Z] Request: GET /api/retail
+[2025-12-15T09:45:39.329Z] Request: GET /api/retail/available-products
+[2025-12-15T09:45:39.329Z] Request: GET /api/retail
+[2025-12-15T09:46:13.645Z] Request: POST /api/auth/logout
+[2025-12-15T09:46:13.646Z] User logged out: retailer
+[2025-12-15T09:46:21.700Z] Request: POST /api/auth/login
+[2025-12-15T09:46:22.151Z] User logged in: retailer@gmail.com
+[2025-12-15T09:46:22.170Z] Request: GET /api/retail/available-products
+[2025-12-15T09:46:22.173Z] Request: GET /api/retail
+[2025-12-15T09:46:22.177Z] Request: GET /api/retail/available-products
+[2025-12-15T09:46:22.177Z] Request: GET /api/retail
+[2025-12-15T09:46:31.878Z] Request: POST /api/auth/logout
+[2025-12-15T09:46:31.878Z] User logged out: retailer
+[2025-12-15T09:46:37.684Z] Request: POST /api/auth/login
+[2025-12-15T09:46:38.132Z] User logged in: warehouse@gmail.com
+[2025-12-15T09:46:38.149Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:46:38.151Z] Request: GET /api/warehouse
+[2025-12-15T09:46:38.157Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:46:38.158Z] Request: GET /api/warehouse
+[2025-12-15T09:46:41.696Z] Request: PUT /api/warehouse/693fd8b057e0e74665e4fc6f/dispatch
+[2025-12-15T09:46:41.708Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:46:41.709Z] Request: GET /api/warehouse
+[2025-12-15T09:46:56.456Z] Request: POST /api/warehouse
+[2025-12-15T09:46:56.466Z] Request: GET /api/warehouse
+[2025-12-15T09:46:56.467Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:47:02.846Z] Request: PUT /api/warehouse/693fd91057e0e74665e4fc97/dispatch
+[2025-12-15T09:47:02.857Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:47:02.859Z] Request: GET /api/warehouse
+[2025-12-15T09:47:10.763Z] Request: PUT /api/warehouse/693fd91057e0e74665e4fc97/dispatch
+[2025-12-15T09:47:10.778Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:47:10.779Z] Request: GET /api/warehouse
+[2025-12-15T09:47:14.594Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:47:14.595Z] Request: GET /api/warehouse
+[2025-12-15T09:47:14.603Z] Request: GET /api/warehouse/available-products
+[2025-12-15T09:47:14.604Z] Request: GET /api/warehouse
+[2025-12-15T09:47:17.130Z] Request: POST /api/auth/logout
+[2025-12-15T09:47:17.130Z] User logged out: warehouse
+[2025-12-15T09:47:27.371Z] Request: POST /api/auth/login
+[2025-12-15T09:47:56.930Z] Request: POST /api/auth/login
+[2025-12-15T09:47:57.396Z] User logged in: retailer@gmail.com
+[2025-12-15T09:47:57.422Z] Request: GET /api/retail/available-products
+[2025-12-15T09:47:57.425Z] Request: GET /api/retail
+[2025-12-15T09:47:57.436Z] Request: GET /api/retail
+[2025-12-15T09:47:57.437Z] Request: GET /api/retail/available-products
+[2025-12-15T09:48:25.534Z] Request: POST /api/retail
+[2025-12-15T09:48:25.548Z] Request: GET /api/retail
+[2025-12-15T09:48:25.549Z] Request: GET /api/retail/available-products
+[2025-12-15T09:48:50.748Z] Request: PUT /api/retail/693fd9693c53f0e3c5b5287d
+[2025-12-15T09:48:50.762Z] Request: GET /api/retail/available-products
+[2025-12-15T09:48:50.764Z] Request: GET /api/retail
+[2025-12-15T09:49:01.161Z] Request: POST /api/auth/logout
+[2025-12-15T09:49:01.162Z] User logged out: retailer
+[2025-12-15T09:49:07.316Z] Request: POST /api/auth/login
+[2025-12-15T09:49:07.768Z] User logged in: user1@gmail.com
+[2025-12-15T09:49:12.183Z] Request: GET /api/customer/track-by-code/PC17656254805789HECE
+[2025-12-15T10:10:55.671Z] Request: POST /api/auth/logout
+[2025-12-15T10:10:55.678Z] User logged out: user1
+[2025-12-15T10:11:19.483Z] Request: POST /api/auth/register
+[2025-12-15T10:11:19.982Z] User registered: farmer4@gmail.com with role Farmer
+[2025-12-15T10:11:56.358Z] Request: POST /api/auth/login
+[2025-12-15T10:11:56.811Z] User logged in: farmer4@gmail.com
+[2025-12-15T10:11:56.832Z] Request: GET /api/farmer/products
+[2025-12-15T10:11:56.837Z] Request: GET /api/farmer/products
+[2025-12-15T10:12:21.562Z] Request: POST /api/farmer/products
+[2025-12-15T10:12:21.577Z] Request: GET /api/farmer/products
+[2025-12-15T10:12:26.988Z] Request: POST /api/auth/logout
+[2025-12-15T10:12:26.989Z] User logged out: farmer4
+[2025-12-15T10:12:34.741Z] Request: POST /api/auth/login
+[2025-12-15T10:12:35.193Z] User logged in: transporterone@gmail.com
+[2025-12-15T10:12:35.214Z] Request: GET /api/transport/available-products
+[2025-12-15T10:12:35.215Z] Request: GET /api/transport
+[2025-12-15T10:12:35.222Z] Request: GET /api/transport/available-products
+[2025-12-15T10:12:35.223Z] Request: GET /api/transport
+[2025-12-15T10:12:55.204Z] Request: POST /api/transport
+[2025-12-15T10:12:55.220Z] Request: GET /api/transport
+[2025-12-15T10:12:55.225Z] Request: GET /api/transport/available-products
+[2025-12-15T10:13:00.824Z] Request: PUT /api/transport/693fdf273c53f0e3c5b528a8/complete
+[2025-12-15T10:13:00.842Z] Request: GET /api/transport/available-products
+[2025-12-15T10:13:00.844Z] Request: GET /api/transport
+[2025-12-15T10:13:16.603Z] Request: POST /api/auth/logout
+[2025-12-15T10:13:16.603Z] User logged out: transporter
+[2025-12-15T10:13:25.161Z] Request: POST /api/auth/login
+[2025-12-15T10:13:25.610Z] User logged in: warehouse@gmail.com
+[2025-12-15T10:13:25.630Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:13:25.632Z] Request: GET /api/warehouse
+[2025-12-15T10:13:25.637Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:13:25.637Z] Request: GET /api/warehouse
+[2025-12-15T10:13:47.298Z] Request: POST /api/warehouse
+[2025-12-15T10:13:47.310Z] Request: GET /api/warehouse
+[2025-12-15T10:13:47.312Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:13:50.906Z] Request: PUT /api/warehouse/693fdf5b3c53f0e3c5b528c0/dispatch
+[2025-12-15T10:13:50.917Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:13:50.918Z] Request: GET /api/warehouse
+[2025-12-15T10:13:53.787Z] Request: POST /api/auth/logout
+[2025-12-15T10:13:53.787Z] User logged out: warehouse
+[2025-12-15T10:13:58.762Z] Request: POST /api/auth/login
+[2025-12-15T10:13:59.212Z] User logged in: retailer@gmail.com
+[2025-12-15T10:13:59.232Z] Request: GET /api/retail/available-products
+[2025-12-15T10:13:59.233Z] Request: GET /api/retail
+[2025-12-15T10:13:59.237Z] Request: GET /api/retail/available-products
+[2025-12-15T10:13:59.238Z] Request: GET /api/retail
+[2025-12-15T10:14:15.146Z] Request: POST /api/retail
+[2025-12-15T10:14:15.156Z] Request: GET /api/retail
+[2025-12-15T10:14:15.156Z] Request: GET /api/retail/available-products
+[2025-12-15T10:14:35.295Z] Request: PUT /api/retail/693fdf773c53f0e3c5b528d6
+[2025-12-15T10:14:35.302Z] Request: GET /api/retail/available-products
+[2025-12-15T10:14:35.303Z] Request: GET /api/retail
+[2025-12-15T10:14:46.302Z] Request: POST /api/auth/logout
+[2025-12-15T10:14:46.302Z] User logged out: retailer
+[2025-12-15T10:14:52.690Z] Request: POST /api/auth/login
+[2025-12-15T10:14:53.141Z] User logged in: user1@gmail.com
+[2025-12-15T10:14:57.308Z] Request: GET /api/customer/track-by-code/PC176579354157157FJR
+[2025-12-15T10:25:20.431Z] Request: POST /api/auth/logout
+[2025-12-15T10:25:20.437Z] User logged out: user1
+[2025-12-15T10:26:04.108Z] Request: POST /api/auth/register
+[2025-12-15T10:26:04.591Z] User registered: farmer5@gmail.com with role Farmer
+[2025-12-15T10:26:17.520Z] Request: POST /api/auth/login
+[2025-12-15T10:26:17.973Z] User logged in: farmer5@gmail.com
+[2025-12-15T10:26:17.994Z] Request: GET /api/farmer/products
+[2025-12-15T10:26:17.999Z] Request: GET /api/farmer/products
+[2025-12-15T10:26:54.135Z] Request: POST /api/farmer/products
+[2025-12-15T10:26:54.153Z] Request: GET /api/farmer/products
+[2025-12-15T10:26:58.266Z] Request: POST /api/auth/logout
+[2025-12-15T10:26:58.266Z] User logged out: farmer5
+[2025-12-15T10:27:06.035Z] Request: POST /api/auth/login
+[2025-12-15T10:27:06.486Z] User logged in: transporter@gmail.com
+[2025-12-15T10:27:06.508Z] Request: GET /api/transport/available-products
+[2025-12-15T10:27:06.509Z] Request: GET /api/transport
+[2025-12-15T10:27:06.516Z] Request: GET /api/transport
+[2025-12-15T10:27:06.516Z] Request: GET /api/transport/available-products
+[2025-12-15T10:27:27.332Z] Request: POST /api/transport
+[2025-12-15T10:27:27.353Z] Request: GET /api/transport
+[2025-12-15T10:27:27.354Z] Request: GET /api/transport/available-products
+[2025-12-15T10:27:29.800Z] Request: PUT /api/transport/693fe28f3c53f0e3c5b52901/complete
+[2025-12-15T10:27:29.815Z] Request: GET /api/transport/available-products
+[2025-12-15T10:27:29.817Z] Request: GET /api/transport
+[2025-12-15T10:27:36.498Z] Request: POST /api/auth/logout
+[2025-12-15T10:27:36.499Z] User logged out: transporter
+[2025-12-15T10:27:42.302Z] Request: POST /api/auth/login
+[2025-12-15T10:27:42.753Z] User logged in: warehouse@gmail.com
+[2025-12-15T10:27:42.775Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:27:42.776Z] Request: GET /api/warehouse
+[2025-12-15T10:27:42.781Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:27:42.781Z] Request: GET /api/warehouse
+[2025-12-15T10:28:05.130Z] Request: POST /api/warehouse
+[2025-12-15T10:28:05.142Z] Request: GET /api/warehouse
+[2025-12-15T10:28:05.144Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:28:08.633Z] Request: PUT /api/warehouse/693fe2b53c53f0e3c5b52919/dispatch
+[2025-12-15T10:28:08.646Z] Request: GET /api/warehouse/available-products
+[2025-12-15T10:28:08.647Z] Request: GET /api/warehouse
+[2025-12-15T10:28:12.765Z] Request: POST /api/auth/logout
+[2025-12-15T10:28:12.765Z] User logged out: warehouse
+[2025-12-15T10:28:19.617Z] Request: POST /api/auth/login
+[2025-12-15T10:28:20.068Z] User logged in: retailer@gmail.com
+[2025-12-15T10:28:20.090Z] Request: GET /api/retail/available-products
+[2025-12-15T10:28:20.092Z] Request: GET /api/retail
+[2025-12-15T10:28:20.097Z] Request: GET /api/retail/available-products
+[2025-12-15T10:28:20.097Z] Request: GET /api/retail
+[2025-12-15T10:28:37.876Z] Request: POST /api/retail
+[2025-12-15T10:28:37.886Z] Request: GET /api/retail
+[2025-12-15T10:28:37.887Z] Request: GET /api/retail/available-products
+[2025-12-15T10:28:53.711Z] Request: PUT /api/retail/693fe2d53c53f0e3c5b5292f
+[2025-12-15T10:28:53.719Z] Request: GET /api/retail/available-products
+[2025-12-15T10:28:53.720Z] Request: GET /api/retail
+[2025-12-15T10:29:00.282Z] Request: POST /api/auth/logout
+[2025-12-15T10:29:00.282Z] User logged out: retailer
+[2025-12-15T10:29:08.134Z] Request: POST /api/auth/login
+[2025-12-15T10:29:08.586Z] User logged in: user1@gmail.com
+[2025-12-15T10:29:10.700Z] Request: GET /api/customer/track-by-code/PC1765794414147B69FR
+[2025-12-15T10:30:18.833Z] Request: POST /api/auth/logout
+[2025-12-15T10:30:18.833Z] User logged out: user1
+[2025-12-15T10:36:40.714Z] Request: POST /api/auth/login
+[2025-12-15T10:36:41.167Z] User logged in: varunpndey@outlook.com
+[2025-12-15T10:36:46.851Z] Request: POST /api/auth/logout
+[2025-12-15T10:36:46.852Z] User logged out: Varun Joshi
+[2025-12-15T10:37:02.908Z] Request: POST /api/auth/login
+[2025-12-15T10:37:03.359Z] User logged in: farmer5@gmail.com
+[2025-12-15T10:37:03.381Z] Request: GET /api/farmer/products
+[2025-12-15T10:37:03.386Z] Request: GET /api/farmer/products
+[2025-12-15T10:40:39.689Z] Request: POST /api/auth/logout
+[2025-12-15T10:40:39.689Z] User logged out: farmer5
+[2025-12-15T10:51:32.861Z] Request: POST /api/auth/login
+[2025-12-15T10:51:33.331Z] User logged in: transporter@gmail.com
+[2025-12-15T10:51:33.353Z] Request: GET /api/transport/available-products
+[2025-12-15T10:51:33.354Z] Request: GET /api/transport
+[2025-12-15T10:51:33.362Z] Request: GET /api/transport/available-products
+[2025-12-15T10:51:33.366Z] Request: GET /api/transport
+[2025-12-15T10:51:58.262Z] Request: POST /api/auth/logout
+[2025-12-15T10:51:58.262Z] User logged out: transporter
+[2025-12-15T11:17:15.275Z] Request: POST /api/auth/login
+[2025-12-15T11:17:15.739Z] User logged in: varunpndey@outlook.com
+[2025-12-15T11:17:22.470Z] Request: POST /api/auth/logout
+[2025-12-15T11:17:22.471Z] User logged out: Varun Joshi
+[2025-12-15T11:17:29.889Z] Request: POST /api/auth/login
+[2025-12-15T11:17:30.341Z] User logged in: farmer5@gmail.com
+[2025-12-15T11:17:30.360Z] Request: GET /api/farmer/products
+[2025-12-15T11:17:30.370Z] Request: GET /api/farmer/products
+[2025-12-15T11:17:37.504Z] Request: POST /api/auth/logout
+[2025-12-15T11:17:37.504Z] User logged out: farmer5
+[2025-12-15T11:17:49.606Z] Request: POST /api/auth/login
+[2025-12-15T11:17:50.059Z] User logged in: transporter@gmail.com
+[2025-12-15T11:17:50.079Z] Request: GET /api/transport/available-products
+[2025-12-15T11:17:50.080Z] Request: GET /api/transport
+[2025-12-15T11:17:50.085Z] Request: GET /api/transport
+[2025-12-15T11:17:50.086Z] Request: GET /api/transport/available-products
+[2025-12-15T11:18:13.003Z] User logged out: transporter
+[2025-12-15T11:18:13.003Z] Request: POST /api/auth/logout
+[2025-12-15T11:18:21.275Z] Request: POST /api/auth/login
+[2025-12-15T11:18:21.725Z] User logged in: transporterone@gmail.com
+[2025-12-15T11:18:21.745Z] Request: GET /api/transport/available-products
+[2025-12-15T11:18:21.746Z] Request: GET /api/transport
+[2025-12-15T11:18:21.751Z] Request: GET /api/transport/available-products
+[2025-12-15T11:18:21.752Z] Request: GET /api/transport
+[2025-12-15T11:18:29.567Z] Request: POST /api/auth/logout
+[2025-12-15T11:18:29.567Z] User logged out: transporter
+[2025-12-15T11:21:53.317Z] Request: POST /api/auth/register
+[2025-12-15T11:21:53.789Z] User registered: farmer7@gmail.com with role Farmer
+[2025-12-15T11:22:05.880Z] Request: POST /api/auth/login
+[2025-12-15T11:22:06.331Z] User logged in: farmer7@gmail.com
+[2025-12-15T11:22:06.350Z] Request: GET /api/farmer/products
+[2025-12-15T11:22:06.354Z] Request: GET /api/farmer/products
+[2025-12-15T11:22:36.945Z] Request: POST /api/farmer/products
+[2025-12-15T11:22:36.959Z] Request: GET /api/farmer/products
+[2025-12-15T11:22:45.322Z] Request: POST /api/auth/logout
+[2025-12-15T11:22:45.323Z] User logged out: farmer7
+[2025-12-15T11:22:53.091Z] Request: POST /api/auth/login
+[2025-12-15T11:22:53.542Z] User logged in: transporter@gmail.com
+[2025-12-15T11:22:53.564Z] Request: GET /api/transport/available-products
+[2025-12-15T11:22:53.565Z] Request: GET /api/transport
+[2025-12-15T11:22:53.571Z] Request: GET /api/transport/available-products
+[2025-12-15T11:22:53.571Z] Request: GET /api/transport
+[2025-12-15T11:23:17.934Z] Request: POST /api/transport
+[2025-12-15T11:23:17.949Z] Request: GET /api/transport
+[2025-12-15T11:23:17.953Z] Request: GET /api/transport/available-products
+[2025-12-15T11:23:21.406Z] Request: PUT /api/transport/693fefa53c53f0e3c5b52985/complete
+[2025-12-15T11:23:21.420Z] Request: GET /api/transport/available-products
+[2025-12-15T11:23:21.421Z] Request: GET /api/transport
+[2025-12-15T11:23:26.354Z] User logged out: transporter
+[2025-12-15T11:23:26.354Z] Request: POST /api/auth/logout
+[2025-12-15T11:23:38.279Z] Request: POST /api/auth/login
+[2025-12-15T11:23:38.728Z] User logged in: warehouse@gmail.com
+[2025-12-15T11:23:38.748Z] Request: GET /api/warehouse/available-products
+[2025-12-15T11:23:38.749Z] Request: GET /api/warehouse
+[2025-12-15T11:23:38.753Z] Request: GET /api/warehouse/available-products
+[2025-12-15T11:23:38.754Z] Request: GET /api/warehouse
+[2025-12-15T11:23:55.031Z] Request: POST /api/warehouse
+[2025-12-15T11:23:55.041Z] Request: GET /api/warehouse
+[2025-12-15T11:23:55.042Z] Request: GET /api/warehouse/available-products
+[2025-12-15T11:23:58.523Z] Request: PUT /api/warehouse/693fefcb3c53f0e3c5b5299d/dispatch
+[2025-12-15T11:23:58.534Z] Request: GET /api/warehouse/available-products
+[2025-12-15T11:23:58.536Z] Request: GET /api/warehouse
+[2025-12-15T11:24:00.971Z] Request: POST /api/auth/logout
+[2025-12-15T11:24:00.971Z] User logged out: warehouse
+[2025-12-15T11:24:08.255Z] Request: POST /api/auth/login
+[2025-12-15T11:24:08.707Z] User logged in: retailer@gmail.com
+[2025-12-15T11:24:08.727Z] Request: GET /api/retail/available-products
+[2025-12-15T11:24:08.728Z] Request: GET /api/retail
+[2025-12-15T11:24:08.733Z] Request: GET /api/retail/available-products
+[2025-12-15T11:24:08.733Z] Request: GET /api/retail
+[2025-12-15T11:24:50.217Z] Request: POST /api/retail
+[2025-12-15T11:24:50.227Z] Request: GET /api/retail
+[2025-12-15T11:24:50.228Z] Request: GET /api/retail/available-products
+[2025-12-15T11:25:01.717Z] Request: PUT /api/retail/693ff0023c53f0e3c5b529b3
+[2025-12-15T11:25:01.725Z] Request: GET /api/retail/available-products
+[2025-12-15T11:25:01.726Z] Request: GET /api/retail
+[2025-12-15T11:25:13.272Z] User logged out: retailer
+[2025-12-15T11:25:13.271Z] Request: POST /api/auth/logout
+[2025-12-15T11:25:20.989Z] Request: POST /api/auth/login
+[2025-12-15T11:25:21.439Z] User logged in: varunpndey@outlook.com
+[2025-12-15T11:25:25.008Z] Request: GET /api/customer/track-by-code/PC1765797756953KZ0F0
+[2025-12-16T08:20:00.543Z] Request: POST /api/auth/login
+[2025-12-16T08:20:01.062Z] User logged in: varunpndey@outlook.com
+[2025-12-16T08:20:10.541Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:20:10.559Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:20:10.561Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:20:10.566Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:20:10.569Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:20:10.570Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:20:12.532Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:20:12.540Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:20:12.541Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:20:13.281Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:20:13.290Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:20:13.291Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:21:32.455Z] Request: GET /api/health
+[2025-12-16T08:21:44.033Z] Request: GET /
+[2025-12-16T08:23:56.782Z] Request: GET /health
+[2025-12-16T08:24:05.373Z] Request: GET /api/customer/track-by-code/PC1234TEST
+[2025-12-16T08:24:29.339Z] Request: POST /api/auth/login
+[2025-12-16T08:24:30.032Z] User logged in: varunpndey@outlook.com
+[2025-12-16T08:24:35.463Z] Request: GET /api/customer/track-by-code/PC1734590125KLMNO
+[2025-12-16T08:24:35.469Z] Request: GET /api/customer/track-by-code/PC1734590125KLMNO
+[2025-12-16T08:24:35.471Z] Request: GET /api/customer/track/PC1734590125KLMNO
+[2025-12-16T08:24:35.474Z] Error: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590125KLMNO
+Method: GET
+[2025-12-16T08:24:35.474Z] Request: GET /api/customer/track/PC1734590125KLMNO
+[2025-12-16T08:24:35.475Z] Error: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590125KLMNO
+Method: GET
+[2025-12-16T08:24:37.191Z] Request: GET /api/customer/track-by-code/PC1734590125KLMNO
+[2025-12-16T08:24:37.196Z] Request: GET /api/customer/track/PC1734590125KLMNO
+[2025-12-16T08:24:37.197Z] Error: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590125KLMNO
+Method: GET
+[2025-12-16T08:24:46.301Z] Request: GET /api/customer/track-by-code/PC1734590125KLMNO
+[2025-12-16T08:24:46.310Z] Request: GET /api/customer/track/PC1734590125KLMNO
+[2025-12-16T08:24:46.311Z] Error: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590125KLMNO
+Method: GET
+[2025-12-16T08:25:24.490Z] Request: GET /api/metrics/summary
+[2025-12-16T08:25:24.501Z] Request: GET /api/metrics/summary
+[2025-12-16T08:25:24.558Z] Request: GET /api/metrics/summary
+[2025-12-16T08:25:24.564Z] Request: GET /api/metrics/summary
+[2025-12-16T08:25:36.043Z] Request: POST /api/auth/logout
+[2025-12-16T08:25:36.044Z] User logged out: unknown
+[2025-12-16T08:25:49.156Z] Request: GET /api/metrics/summary
+[2025-12-16T08:25:49.164Z] Request: GET /api/metrics/summary
+[2025-12-16T08:26:38.412Z] Request: POST /api/auth/register
+[2025-12-16T08:26:38.909Z] User registered: test@example.com with role Customer
+[2025-12-16T08:27:31.551Z] Request: POST /api/auth/login
+[2025-12-16T08:27:32.025Z] User logged in: test@example.com
+[2025-12-16T08:32:11.582Z] Request: POST /api/auth/login
+[2025-12-16T08:32:12.066Z] User logged in: varunpndey@outlook.com
+[2025-12-16T08:32:22.526Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:32:22.532Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:32:22.536Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:32:22.539Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:32:22.543Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:32:22.544Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:32:26.464Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:32:26.472Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:32:26.473Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:33:01.461Z] Request: GET /api/customer/track-by-code/TESTCODE123
+[2025-12-16T08:35:48.838Z] Request: GET /api/customer/track-by-code/PC1734590125KLMNO
+[2025-12-16T08:35:48.877Z] Request: GET /api/customer/track-by-code/PC1734590125KLMNO
+[2025-12-16T08:35:48.897Z] Request: GET /api/customer/track/PC1734590125KLMNO
+[2025-12-16T08:35:48.937Z] Error: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590125KLMNO
+Method: GET
+[2025-12-16T08:35:48.939Z] Request: GET /api/customer/track/PC1734590125KLMNO
+[2025-12-16T08:35:48.939Z] Error: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590125KLMNO" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590125KLMNO
+Method: GET
+[2025-12-16T08:35:48.942Z] Request: GET /api/metrics/summary
+[2025-12-16T08:35:48.943Z] Request: GET /api/metrics/summary
+[2025-12-16T08:36:43.218Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:36:43.751Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:36:43.753Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:36:43.754Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:36:43.762Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:36:43.763Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:36:44.699Z] Request: GET /api/customer/track-by-code/PC1734590123ABCDE
+[2025-12-16T08:36:44.704Z] Request: GET /api/customer/track/PC1734590123ABCDE
+[2025-12-16T08:36:44.704Z] Error: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+Stack: CastError: Cast to ObjectId failed for value "PC1734590123ABCDE" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schema/objectId.js:253:11)
+    at SchemaType.applySetters (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1288:12)
+    at SchemaType.castForQuery (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/schemaType.js:1724:17)
+    at cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:5060:12)
+    at Query._castConditions (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2374:10)
+    at model.Query._findOne (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:2697:8)
+    at model.Query.exec (/Users/varunjoshi/Desktop/extra/Agrichain/backend/node_modules/mongoose/lib/query.js:4627:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/varunjoshi/Desktop/extra/Agrichain/backend/routes/customerRoutes.js:12:21
+URL: /api/customer/track/PC1734590123ABCDE
+Method: GET
+[2025-12-16T08:36:50.143Z] Request: POST /api/auth/logout
+[2025-12-16T08:36:50.144Z] User logged out: Varun Joshi
+[2025-12-16T08:37:23.137Z] Request: GET /api/customer/track-by-code/TEST123
+[2025-12-16T08:37:41.958Z] Request: GET /api/products
+[2025-12-16T08:38:09.783Z] Request: GET /api/metrics/summary
+[2025-12-16T08:38:09.795Z] Request: GET /api/metrics/summary
+[2025-12-16T08:38:12.261Z] Request: POST /api/auth/logout
+[2025-12-16T08:38:12.262Z] User logged out: unknown
+[2025-12-16T08:38:15.580Z] Request: GET /api/customer/track-by-code/PC1765797756953KZ0F0
+[2025-12-16T08:38:34.885Z] Request: GET /api/metrics/summary
+[2025-12-16T08:38:34.886Z] Request: GET /api/metrics/summary
+[2025-12-16T08:38:39.528Z] Request: GET /api/metrics/summary
+[2025-12-16T08:38:39.542Z] Request: GET /api/metrics/summary
+[2025-12-16T08:38:44.055Z] Request: GET /api/customer/track-by-code/PC1765797756953KZ0F0
+[2025-12-16T08:38:44.076Z] Request: GET /api/customer/track-by-code/PC1765797756953KZ0F0
+[2025-12-16T08:38:53.410Z] Request: POST /api/auth/login
+[2025-12-16T08:38:53.862Z] User logged in: varunpndey@outlook.com
+[2025-12-16T08:39:51.908Z] Request: GET /api/customer/track-by-code/PC1765264443981BVJRP
+[2025-12-16T08:40:54.983Z] Request: POST /api/auth/logout
+[2025-12-16T08:40:54.984Z] User logged out: Varun Joshi
+[2025-12-16T08:41:05.549Z] Request: POST /api/auth/login
+[2025-12-16T08:41:05.556Z] Failed login attempt for non-existent user: farmer@gmail.com
+[2025-12-16T08:41:10.809Z] Request: POST /api/auth/login
+[2025-12-16T08:41:11.262Z] User logged in: farmerone@gmail.com
+[2025-12-16T08:45:10.605Z] Request: POST /api/auth/logout
+[2025-12-16T08:45:10.606Z] User logged out: farmer one
+[2025-12-16T08:45:21.785Z] Request: GET /api/metrics/summary
+[2025-12-16T08:45:21.787Z] Request: GET /api/metrics/summary
+[2025-12-16T08:46:32.357Z] Request: POST /api/auth/login
+[2025-12-16T08:46:32.812Z] User logged in: varunpndey@outlook.com
+[2025-12-16T08:49:10.243Z] Request: GET /api/transporter/shipments
+[2025-12-16T08:49:26.087Z] Request: GET /api/customer/purchases/1234567890
+[2025-12-16T08:49:33.563Z] Request: GET /api/customer/purchases/1234567890
+[2025-12-16T08:50:10.734Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T08:51:11.470Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T08:52:58.194Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T08:52:58.222Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T08:53:15.940Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T08:53:15.949Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T08:53:29.038Z] Request: POST /api/auth/logout
+[2025-12-16T08:53:29.039Z] User logged out: unknown
+[2025-12-16T08:53:35.050Z] Request: POST /api/auth/login
+[2025-12-16T08:53:35.620Z] User logged in: transporter@gmail.com
+[2025-12-16T08:53:51.049Z] Request: POST /api/auth/login
+[2025-12-16T08:53:51.493Z] User logged in: transporter@gmail.com
+[2025-12-16T08:57:49.557Z] Request: POST /api/auth/logout
+[2025-12-16T08:57:49.558Z] User logged out: transporter
+[2025-12-16T08:59:19.372Z] Request: POST /api/auth/login
+[2025-12-16T08:59:19.838Z] User logged in: varunpndey@outlook.com
+[2025-12-16T08:59:19.871Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T08:59:19.881Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T08:59:30.305Z] Request: POST /api/auth/logout
+[2025-12-16T08:59:30.305Z] User logged out: Varun Joshi
+[2025-12-16T08:59:36.217Z] Request: POST /api/auth/login
+[2025-12-16T08:59:36.224Z] Failed login attempt for non-existent user: farmer@gmail.com
+[2025-12-16T08:59:40.054Z] Request: POST /api/auth/login
+[2025-12-16T08:59:40.506Z] User logged in: farmerone@gmail.com
+[2025-12-16T08:59:40.525Z] Request: GET /api/farmer/products
+[2025-12-16T08:59:40.547Z] Request: GET /api/farmer/products
+[2025-12-16T08:59:48.047Z] Request: POST /api/auth/logout
+[2025-12-16T08:59:48.048Z] User logged out: farmer one
+[2025-12-16T08:59:53.485Z] Request: POST /api/auth/login
+[2025-12-16T08:59:53.937Z] User logged in: transporterone@gmail.com
+[2025-12-16T08:59:53.957Z] Request: GET /api/transport
+[2025-12-16T08:59:53.958Z] Request: GET /api/transport/available-products
+[2025-12-16T08:59:53.966Z] Request: GET /api/transport
+[2025-12-16T08:59:53.967Z] Request: GET /api/transport/available-products
+[2025-12-16T09:00:01.295Z] Request: POST /api/auth/logout
+[2025-12-16T09:00:01.296Z] User logged out: transporter
+[2025-12-16T09:00:07.423Z] Request: POST /api/auth/login
+[2025-12-16T09:00:07.874Z] User logged in: varunpndey@outlook.com
+[2025-12-16T09:00:07.895Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:00:07.899Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:00:13.362Z] Request: POST /api/auth/logout
+[2025-12-16T09:00:13.362Z] User logged out: Varun Joshi
+[2025-12-16T09:00:22.318Z] Request: POST /api/auth/login
+[2025-12-16T09:00:22.769Z] User logged in: warehouse@gmail.com
+[2025-12-16T09:00:22.790Z] Request: GET /api/warehouse/available-products
+[2025-12-16T09:00:22.792Z] Request: GET /api/warehouse
+[2025-12-16T09:00:22.798Z] Request: GET /api/warehouse/available-products
+[2025-12-16T09:00:22.798Z] Request: GET /api/warehouse
+[2025-12-16T09:00:26.012Z] Request: POST /api/auth/logout
+[2025-12-16T09:00:26.012Z] User logged out: warehouse
+[2025-12-16T09:00:38.517Z] Request: POST /api/auth/login
+[2025-12-16T09:00:38.977Z] User logged in: transporter@gmail.com
+[2025-12-16T09:00:38.993Z] Request: GET /api/transport/available-products
+[2025-12-16T09:00:38.996Z] Request: GET /api/transport
+[2025-12-16T09:00:38.999Z] Request: GET /api/transport/available-products
+[2025-12-16T09:00:39.004Z] Request: GET /api/transport
+[2025-12-16T09:00:44.314Z] User logged out: transporter
+[2025-12-16T09:00:44.313Z] Request: POST /api/auth/logout
+[2025-12-16T09:00:50.067Z] Request: GET /api/metrics/summary
+[2025-12-16T09:00:50.070Z] Request: GET /api/metrics/summary
+[2025-12-16T09:01:53.094Z] Request: GET /api/metrics/summary
+[2025-12-16T09:01:53.096Z] Request: GET /api/metrics/summary
+[2025-12-16T09:02:16.795Z] Request: POST /api/auth/login
+[2025-12-16T09:02:17.245Z] User logged in: varunpndey@outlook.com
+[2025-12-16T09:02:17.281Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:02:17.284Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:02:19.981Z] Request: POST /api/auth/logout
+[2025-12-16T09:02:19.981Z] User logged out: Varun Joshi
+[2025-12-16T09:02:28.898Z] Request: POST /api/auth/login
+[2025-12-16T09:02:29.350Z] User logged in: retailer@gmail.com
+[2025-12-16T09:02:29.373Z] Request: GET /api/retail/available-products
+[2025-12-16T09:02:29.374Z] Request: GET /api/retail
+[2025-12-16T09:02:29.381Z] Request: GET /api/retail/available-products
+[2025-12-16T09:02:29.382Z] Request: GET /api/retail
+[2025-12-16T09:02:46.079Z] Request: PUT /api/retail/693fd49b66165d9975da6931/sell-out
+[2025-12-16T09:02:46.137Z] Request: GET /api/retail/available-products
+[2025-12-16T09:02:46.138Z] Request: GET /api/retail
+[2025-12-16T09:02:55.230Z] Request: POST /api/auth/logout
+[2025-12-16T09:02:55.230Z] User logged out: retailer
+[2025-12-16T09:03:04.650Z] Request: POST /api/auth/login
+[2025-12-16T09:03:05.102Z] User logged in: varunpndey@outlook.com
+[2025-12-16T09:03:05.125Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:03:05.128Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:03:07.980Z] Request: GET /api/customer/track-by-code/PC1765790726254AZMAA
+[2025-12-16T09:03:08.000Z] Request: GET /api/customer/track-by-code/PC1765790726254AZMAA
+[2025-12-16T09:03:16.481Z] Request: POST /api/auth/logout
+[2025-12-16T09:03:16.481Z] User logged out: Varun Joshi
+[2025-12-16T09:03:22.648Z] Request: GET /api/metrics/summary
+[2025-12-16T09:03:22.657Z] Request: GET /api/metrics/summary
+[2025-12-16T09:03:26.393Z] Request: GET /api/customer/track-by-code/PC1765790726254AZMAA
+[2025-12-16T09:03:26.403Z] Request: GET /api/customer/track-by-code/PC1765790726254AZMAA
+[2025-12-16T09:07:39.995Z] Request: GET /api/customer/purchases/1234567890
+[2025-12-16T09:10:40.020Z] Request: POST /api/auth/login
+[2025-12-16T09:10:40.479Z] User logged in: retailer@gmail.com
+[2025-12-16T09:10:40.503Z] Request: GET /api/retail/available-products
+[2025-12-16T09:10:40.506Z] Request: GET /api/retail
+[2025-12-16T09:10:40.514Z] Request: GET /api/retail/available-products
+[2025-12-16T09:10:40.515Z] Request: GET /api/retail
+[2025-12-16T09:10:53.187Z] Request: POST /api/retail
+[2025-12-16T09:10:53.209Z] Request: GET /api/retail
+[2025-12-16T09:10:53.210Z] Request: GET /api/retail/available-products
+[2025-12-16T09:11:09.983Z] Request: PUT /api/retail/6941221d304c89bd3fd61747
+[2025-12-16T09:11:10.008Z] Request: GET /api/retail/available-products
+[2025-12-16T09:11:10.010Z] Request: GET /api/retail
+[2025-12-16T09:11:26.299Z] Request: POST /api/auth/logout
+[2025-12-16T09:11:26.299Z] User logged out: retailer
+[2025-12-16T09:11:33.155Z] Request: GET /api/customer/purchases/1234567890
+[2025-12-16T09:12:59.363Z] Request: GET /api/farmer/profile
+[2025-12-16T09:14:06.145Z] Request: POST /api/auth/login
+[2025-12-16T09:14:06.625Z] User logged in: farmerone@gmail.com
+[2025-12-16T09:14:06.653Z] Request: GET /api/farmer/profile
+[2025-12-16T09:14:06.655Z] Request: GET /api/farmer/products
+[2025-12-16T09:14:06.657Z] Request: GET /api/farmer/profile
+[2025-12-16T09:14:06.671Z] Request: GET /api/farmer/products
+[2025-12-16T09:15:11.440Z] Request: PUT /api/farmer/profile
+[2025-12-16T09:15:41.141Z] Request: POST /api/farmer/products
+[2025-12-16T09:15:41.161Z] Request: GET /api/farmer/products
+[2025-12-16T09:15:42.814Z] Request: POST /api/auth/logout
+[2025-12-16T09:15:42.815Z] User logged out: farmer one
+[2025-12-16T09:15:53.154Z] Request: POST /api/auth/login
+[2025-12-16T09:15:53.607Z] User logged in: transporter@gmail.com
+[2025-12-16T09:15:53.628Z] Request: GET /api/transport
+[2025-12-16T09:15:53.629Z] Request: GET /api/transport/available-products
+[2025-12-16T09:15:53.638Z] Request: GET /api/transport
+[2025-12-16T09:15:53.639Z] Request: GET /api/transport/available-products
+[2025-12-16T09:16:10.468Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:16:32.300Z] Request: GET /api/farmer/products
+[2025-12-16T09:20:12.795Z] Request: POST /api/auth/logout
+[2025-12-16T09:20:12.797Z] User logged out: unknown
+[2025-12-16T09:20:17.768Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:20:24.855Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:21:12.796Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:22:21.846Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:22:46.477Z] Request: GET /api/customer/purchases/9876543211
+[2025-12-16T09:23:08.900Z] Request: GET /api/customer/debug
+[2025-12-16T09:23:28.209Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:23:48.767Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:24:35.454Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:24:47.459Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:25:01.515Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:25:27.747Z] Request: GET /api/customer/purchases/9876543211
+[2025-12-16T09:25:55.896Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:25:59.831Z] Request: GET /api/customer/track-by-code/PC1765789672534L88VY
+[2025-12-16T09:28:36.650Z] Request: GET /api/metrics/summary
+[2025-12-16T09:28:36.655Z] Request: GET /api/metrics/summary
+[2025-12-16T09:29:12.848Z] Request: GET /api/transport/available-products
+[2025-12-16T09:29:55.130Z] Request: POST /api/auth/login
+[2025-12-16T09:29:55.605Z] User logged in: transporter@gmail.com
+[2025-12-16T09:29:55.636Z] Request: GET /api/transport/available-products
+[2025-12-16T09:29:55.639Z] Request: GET /api/transport
+[2025-12-16T09:29:55.663Z] Request: GET /api/transport
+[2025-12-16T09:29:55.665Z] Request: GET /api/transport/available-products
+[2025-12-16T09:32:48.818Z] Request: GET /api/transport/available-products
+[2025-12-16T09:32:48.821Z] Request: GET /api/transport
+[2025-12-16T09:34:31.923Z] Request: POST /api/auth/logout
+[2025-12-16T09:34:31.924Z] User logged out: transporter
+[2025-12-16T09:34:59.996Z] Request: POST /api/auth/register
+[2025-12-16T09:35:00.478Z] User registered: transportertwo@gmail.com with role Transporter
+[2025-12-16T09:35:00.520Z] Request: GET /api/transporter/shipments
+[2025-12-16T09:35:00.522Z] Request: GET /api/transporter/shipments
+[2025-12-16T09:35:14.301Z] Request: POST /api/auth/logout
+[2025-12-16T09:35:14.301Z] User logged out: unknown
+[2025-12-16T09:35:21.046Z] Request: POST /api/auth/login
+[2025-12-16T09:35:21.498Z] User logged in: transportertwo@gmail.com
+[2025-12-16T09:35:21.517Z] Request: GET /api/transport/available-products
+[2025-12-16T09:35:21.519Z] Request: GET /api/transport
+[2025-12-16T09:35:21.529Z] Request: GET /api/transport/available-products
+[2025-12-16T09:35:21.529Z] Request: GET /api/transport
+[2025-12-16T09:36:13.208Z] Request: POST /api/auth/logout
+[2025-12-16T09:36:13.209Z] User logged out: transporter2
+[2025-12-16T09:41:42.289Z] Request: GET /api/metrics/summary
+[2025-12-16T09:41:42.305Z] Request: GET /api/metrics/summary
+[2025-12-16T09:42:02.060Z] Request: GET /api/metrics/summary
+[2025-12-16T09:42:02.064Z] Request: GET /api/metrics/summary
+[2025-12-16T09:42:48.802Z] Request: POST /api/auth/login
+[2025-12-16T09:42:49.303Z] User logged in: varunpndey@outlook.com
+[2025-12-16T09:42:50.319Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:42:50.340Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:42:55.724Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:42:55.731Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T09:43:01.880Z] Request: POST /api/auth/logout
+[2025-12-16T09:43:01.881Z] User logged out: Varun Joshi
+[2025-12-16T09:43:10.302Z] Request: POST /api/auth/login
+[2025-12-16T09:43:10.765Z] User logged in: farmerone@gmail.com
+[2025-12-16T09:43:11.782Z] Request: GET /api/farmer/profile
+[2025-12-16T09:43:11.786Z] Request: GET /api/farmer/products
+[2025-12-16T09:43:11.794Z] Request: GET /api/farmer/profile
+[2025-12-16T09:43:11.815Z] Request: GET /api/farmer/products
+[2025-12-16T09:43:15.088Z] Request: GET /api/farmer/profile
+[2025-12-16T09:43:15.092Z] Request: GET /api/farmer/products
+[2025-12-16T09:43:15.093Z] Request: GET /api/farmer/profile
+[2025-12-16T09:43:15.099Z] Request: GET /api/farmer/products
+[2025-12-16T09:43:21.319Z] Request: POST /api/auth/logout
+[2025-12-16T09:43:21.320Z] User logged out: farmer one
+[2025-12-16T09:43:27.364Z] Request: POST /api/auth/login
+[2025-12-16T09:43:27.816Z] User logged in: farmer5@gmail.com
+[2025-12-16T09:43:28.840Z] Request: GET /api/farmer/profile
+[2025-12-16T09:43:28.842Z] Request: GET /api/farmer/products
+[2025-12-16T09:43:28.844Z] Request: GET /api/farmer/profile
+[2025-12-16T09:43:28.850Z] Request: GET /api/farmer/products
+[2025-12-16T09:44:04.341Z] Request: GET /api/farmer/profile
+[2025-12-16T09:44:04.344Z] Request: GET /api/farmer/products
+[2025-12-16T09:44:04.348Z] Request: GET /api/farmer/profile
+[2025-12-16T09:44:04.354Z] Request: GET /api/farmer/products
+[2025-12-16T09:44:08.204Z] Request: GET /api/farmer/profile
+[2025-12-16T09:44:08.204Z] Request: GET /api/farmer/products
+[2025-12-16T09:44:08.205Z] Request: GET /api/farmer/profile
+[2025-12-16T09:44:08.211Z] Request: GET /api/farmer/products
+[2025-12-16T09:44:18.179Z] Request: GET /api/customer/track-by-code/PC1765794414147B69FR
+[2025-12-16T09:44:25.136Z] User logged out: farmer5
+[2025-12-16T09:44:25.135Z] Request: POST /api/auth/logout
+[2025-12-16T09:44:51.778Z] Request: GET /api/metrics/summary
+[2025-12-16T09:44:51.780Z] Request: GET /api/metrics/summary
+[2025-12-16T09:45:07.832Z] Request: POST /api/auth/login
+[2025-12-16T09:45:08.309Z] User logged in: retailer@gmail.com
+[2025-12-16T09:45:09.335Z] Request: GET /api/retail/available-products
+[2025-12-16T09:45:09.339Z] Request: GET /api/retail
+[2025-12-16T09:45:09.363Z] Request: GET /api/retail/available-products
+[2025-12-16T09:45:09.370Z] Request: GET /api/retail
+[2025-12-16T09:45:12.084Z] Request: GET /api/retail/available-products
+[2025-12-16T09:45:12.088Z] Request: GET /api/retail
+[2025-12-16T09:45:12.095Z] Request: GET /api/retail/available-products
+[2025-12-16T09:45:12.096Z] Request: GET /api/retail
+[2025-12-16T09:45:21.496Z] Request: GET /api/retail
+[2025-12-16T09:45:21.498Z] Request: GET /api/retail/available-products
+[2025-12-16T09:45:21.512Z] Request: GET /api/retail
+[2025-12-16T09:45:21.512Z] Request: GET /api/retail/available-products
+[2025-12-16T09:45:25.201Z] User logged out: retailer
+[2025-12-16T09:45:25.200Z] Request: POST /api/auth/logout
+[2025-12-16T09:45:33.157Z] Request: POST /api/auth/login
+[2025-12-16T09:45:33.611Z] User logged in: transporter@gmail.com
+[2025-12-16T09:45:34.633Z] Request: GET /api/transport
+[2025-12-16T09:45:34.636Z] Request: GET /api/transport/available-products
+[2025-12-16T09:45:34.649Z] Request: GET /api/transport
+[2025-12-16T09:45:34.650Z] Request: GET /api/transport/available-products
+[2025-12-16T09:45:38.328Z] Request: GET /api/transport/available-products
+[2025-12-16T09:45:38.333Z] Request: GET /api/transport
+[2025-12-16T09:45:38.346Z] Request: GET /api/transport/available-products
+[2025-12-16T09:45:38.347Z] Request: GET /api/transport
+[2025-12-16T09:45:46.817Z] Request: GET /api/transport/available-products
+[2025-12-16T09:45:46.818Z] Request: GET /api/transport
+[2025-12-16T09:45:46.824Z] Request: GET /api/transport/available-products
+[2025-12-16T09:45:46.825Z] Request: GET /api/transport
+[2025-12-16T09:45:51.334Z] Request: POST /api/auth/logout
+[2025-12-16T09:45:51.334Z] User logged out: transporter
+[2025-12-16T09:45:57.071Z] Request: POST /api/auth/login
+[2025-12-16T09:45:57.523Z] User logged in: transportertwo@gmail.com
+[2025-12-16T09:45:58.547Z] Request: GET /api/transport/available-products
+[2025-12-16T09:45:58.548Z] Request: GET /api/transport
+[2025-12-16T09:45:58.554Z] Request: GET /api/transport
+[2025-12-16T09:45:58.555Z] Request: GET /api/transport/available-products
+[2025-12-16T09:46:35.772Z] Request: POST /api/auth/logout
+[2025-12-16T09:46:35.773Z] User logged out: transporter2
+[2025-12-16T09:46:41.452Z] Request: POST /api/auth/login
+[2025-12-16T09:46:41.898Z] User logged in: warehouse@gmail.com
+[2025-12-16T09:46:42.923Z] Request: GET /api/warehouse/available-products
+[2025-12-16T09:46:42.926Z] Request: GET /api/warehouse
+[2025-12-16T09:46:42.936Z] Request: GET /api/warehouse/available-products
+[2025-12-16T09:46:42.938Z] Request: GET /api/warehouse
+[2025-12-16T09:46:56.083Z] Request: GET /api/warehouse/available-products
+[2025-12-16T09:46:56.086Z] Request: GET /api/warehouse
+[2025-12-16T09:46:56.095Z] Request: GET /api/warehouse/available-products
+[2025-12-16T09:46:56.096Z] Request: GET /api/warehouse
+[2025-12-16T09:46:57.912Z] Request: POST /api/auth/logout
+[2025-12-16T09:46:57.912Z] User logged out: warehouse
+[2025-12-16T09:47:41.771Z] Request: POST /api/auth/login
+[2025-12-16T09:47:42.225Z] Failed login attempt for user: retailer@gmail.com - invalid password
+[2025-12-16T09:47:47.400Z] Request: POST /api/auth/login
+[2025-12-16T09:47:47.847Z] User logged in: retailer@gmail.com
+[2025-12-16T09:47:48.874Z] Request: GET /api/retail/available-products
+[2025-12-16T09:47:48.875Z] Request: GET /api/retail
+[2025-12-16T09:47:48.890Z] Request: GET /api/retail/available-products
+[2025-12-16T09:47:48.892Z] Request: GET /api/retail
+[2025-12-16T09:48:13.235Z] Request: GET /api/retail/available-products
+[2025-12-16T09:48:13.239Z] Request: GET /api/retail
+[2025-12-16T09:48:13.250Z] Request: GET /api/retail/available-products
+[2025-12-16T09:48:13.252Z] Request: GET /api/retail
+[2025-12-16T09:48:22.535Z] Request: GET /api/customer/track-by-code/PC17656254805789HECE
+[2025-12-16T09:48:35.073Z] Request: GET /api/retail
+[2025-12-16T09:48:35.076Z] Request: GET /api/retail/available-products
+[2025-12-16T09:48:35.087Z] Request: GET /api/retail
+[2025-12-16T09:48:35.087Z] Request: GET /api/retail/available-products
+[2025-12-16T09:49:32.678Z] Request: GET /api/retail
+[2025-12-16T09:49:32.683Z] Request: GET /api/retail/available-products
+[2025-12-16T09:49:32.688Z] Request: GET /api/retail/available-products
+[2025-12-16T09:49:32.713Z] Request: GET /api/retail
+[2025-12-16T09:49:41.098Z] Request: POST /api/auth/logout
+[2025-12-16T09:49:41.099Z] User logged out: retailer
+[2025-12-16T09:49:49.799Z] Request: POST /api/auth/login
+[2025-12-16T09:49:50.248Z] User logged in: transporter@gmail.com
+[2025-12-16T09:49:51.271Z] Request: GET /api/transport/available-products
+[2025-12-16T09:49:51.276Z] Request: GET /api/transport
+[2025-12-16T09:49:51.287Z] Request: GET /api/transport/available-products
+[2025-12-16T09:49:51.289Z] Request: GET /api/transport
+[2025-12-16T09:49:53.742Z] Request: GET /api/transport/available-products
+[2025-12-16T09:49:53.745Z] Request: GET /api/transport
+[2025-12-16T09:49:53.752Z] Request: GET /api/transport/available-products
+[2025-12-16T09:49:53.754Z] Request: GET /api/transport
+[2025-12-16T09:49:55.403Z] Request: GET /api/transport/available-products
+[2025-12-16T09:49:55.405Z] Request: GET /api/transport
+[2025-12-16T09:49:55.409Z] Request: GET /api/transport/available-products
+[2025-12-16T09:49:55.409Z] Request: GET /api/transport
+[2025-12-16T09:49:59.495Z] Request: POST /api/auth/logout
+[2025-12-16T09:49:59.495Z] User logged out: transporter
+[2025-12-16T09:50:28.952Z] Request: POST /api/auth/register
+[2025-12-16T09:50:34.187Z] Request: POST /api/auth/register
+[2025-12-16T09:50:34.655Z] User registered: transporterthree@gmail.com with role Transporter
+[2025-12-16T09:50:34.677Z] Request: GET /api/transporter/shipments
+[2025-12-16T09:50:34.680Z] Request: GET /api/transporter/shipments
+[2025-12-16T09:52:13.293Z] Request: POST /api/auth/logout
+[2025-12-16T09:52:13.295Z] User logged out: unknown
+[2025-12-16T09:52:19.250Z] Request: POST /api/auth/login
+[2025-12-16T09:52:19.723Z] User logged in: transporter@gmail.com
+[2025-12-16T09:52:20.753Z] Request: GET /api/transport/available-products
+[2025-12-16T09:52:20.755Z] Request: GET /api/transport
+[2025-12-16T09:52:20.776Z] Request: GET /api/transport/available-products
+[2025-12-16T09:52:20.780Z] Request: GET /api/transport
+[2025-12-16T09:52:23.329Z] Request: GET /api/transport/available-products
+[2025-12-16T09:52:23.330Z] Request: GET /api/transport
+[2025-12-16T09:52:23.340Z] Request: GET /api/transport/available-products
+[2025-12-16T09:52:23.341Z] Request: GET /api/transport
+[2025-12-16T09:52:31.280Z] Request: POST /api/auth/logout
+[2025-12-16T09:52:31.280Z] User logged out: transporter
+[2025-12-16T09:52:59.886Z] Request: POST /api/auth/register
+[2025-12-16T09:53:00.346Z] User registered: transporterfive@gmail.com with role Transporter
+[2025-12-16T09:53:00.367Z] Request: GET /api/transport/available-products
+[2025-12-16T09:53:00.368Z] Request: GET /api/transport
+[2025-12-16T09:53:00.370Z] Request: GET /api/transport/available-products
+[2025-12-16T09:53:00.371Z] Request: GET /api/transport
+[2025-12-16T09:53:04.462Z] User logged out: unknown
+[2025-12-16T09:53:04.461Z] Request: POST /api/auth/logout
+[2025-12-16T09:58:34.841Z] Request: GET /api/customer/purchases/1234567890
+[2025-12-16T09:58:43.908Z] Request: GET /api/customer/purchases/9876543210
+[2025-12-16T09:58:45.938Z] Request: GET /api/customer/track-by-code/PC1765789672534L88VY
+[2025-12-16T10:00:10.485Z] Request: GET /api/metrics/summary
+[2025-12-16T10:00:10.494Z] Request: GET /api/metrics/summary
+[2025-12-16T10:00:25.536Z] Request: GET /api/metrics/summary
+[2025-12-16T10:00:25.537Z] Request: GET /api/metrics/summary
+[2025-12-16T10:00:25.547Z] Request: GET /api/metrics/summary
+[2025-12-16T10:00:25.549Z] Request: GET /api/metrics/summary
+[2025-12-16T10:03:22.241Z] Request: GET /api/metrics/summary
+[2025-12-16T10:03:22.249Z] Request: GET /api/metrics/summary
+[2025-12-16T10:04:37.393Z] Request: GET /api/metrics/summary
+[2025-12-16T10:04:37.396Z] Request: GET /api/metrics/summary
+[2025-12-16T10:04:37.399Z] Request: GET /api/metrics/summary
+[2025-12-16T10:04:37.400Z] Request: GET /api/metrics/summary
+[2025-12-16T10:05:31.889Z] Request: POST /api/auth/login
+[2025-12-16T10:05:32.484Z] User logged in: varunpndey@outlook.com
+[2025-12-16T10:05:33.525Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T10:05:33.575Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T10:05:44.808Z] Request: POST /api/auth/logout
+[2025-12-16T10:05:44.809Z] User logged out: Varun Joshi
+[2025-12-16T10:05:55.974Z] Request: POST /api/auth/login
+[2025-12-16T10:05:56.442Z] User logged in: user1@gmail.com
+[2025-12-16T10:05:57.465Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T10:05:57.472Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T10:06:47.950Z] Request: POST /api/auth/logout
+[2025-12-16T10:06:47.951Z] User logged out: user1
+[2025-12-16T10:06:56.149Z] Request: POST /api/auth/login
+[2025-12-16T10:06:56.593Z] User logged in: transporter@gmail.com
+[2025-12-16T10:06:57.614Z] Request: GET /api/transport/available-products
+[2025-12-16T10:06:57.617Z] Request: GET /api/transport
+[2025-12-16T10:06:57.649Z] Request: GET /api/transport/available-products
+[2025-12-16T10:06:57.649Z] Request: GET /api/transport
+[2025-12-16T10:07:26.170Z] Request: POST /api/auth/logout
+[2025-12-16T10:07:26.171Z] User logged out: transporter
+[2025-12-16T10:07:33.473Z] Request: POST /api/auth/login
+[2025-12-16T10:07:33.930Z] User logged in: varunpndey@outlook.com
+[2025-12-16T10:07:34.956Z] Request: GET /api/customer/purchases/undefined
+[2025-12-16T10:07:34.965Z] Request: GET /api/customer/purchases/undefined

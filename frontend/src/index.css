@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* CSS variables for design tokens */
+:root {
+  --color-primary: #16a34a;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-muted-foreground: #64748b;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-card: #ffffff;
+}
+
+/* Fallback classes for design system */
+.bg-background {
+  background-color: var(--color-background);
+}
+
+.bg-secondary\/30 {
+  background-color: rgba(241, 245, 249, 0.3);
+}
+
+.bg-secondary\/20 {
+  background-color: rgba(241, 245, 249, 0.2);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-primary\/10 {
+  background-color: rgba(22, 163, 74, 0.1);
+}
+
+.bg-card {
+  background-color: var(--color-card);
+}
+
+.text-foreground {
+  color: var(--color-foreground);
+}
+
+.text-muted-foreground {
+  color: var(--color-muted-foreground);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-primary-foreground {
+  color: var(--color-primary-foreground);
+}
+
+.border-border {
+  border-color: var(--color-border);
+}
+
+.border-input {
+  border-color: var(--color-input);
+}
+
+.font-heading {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
