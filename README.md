@@ -10,7 +10,6 @@ A comprehensive supply chain tracking system that ensures transparency and trace
 - **Warehouse**: Manage inventory, process incoming/outgoing products, quality control
 - **Retailer**: List products for sale, manage inventory, process customer orders
 - **Customer**: Track purchases, view product history, verify authenticity
-- **Admin**: System oversight, user management, analytics dashboard
 
 ### 📱 **Core Functionality**
 - **Product Tracking**: Real-time tracking using unique product codes
@@ -18,7 +17,6 @@ A comprehensive supply chain tracking system that ensures transparency and trace
 - **Supply Chain Transparency**: Complete journey visibility from farm to retail
 - **Farm Location Management**: GPS-based farm location tracking for pickup coordination
 - **Inventory Management**: Real-time stock management across all stakeholders
-- **Quality Assurance**: Quality checkpoints at each stage of the supply chain
 
 ### 🎨 **Enhanced User Experience**
 - **Modern UI/UX**: Responsive design with smooth animations
