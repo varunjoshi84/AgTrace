@@ -11,6 +11,8 @@ const FarmerDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [availableTransporters, setAvailableTransporters] = useState([]);
+  const [availableWarehouses, setAvailableWarehouses] = useState([]);
 
   // New product form data
   const [productForm, setProductForm] = useState({
@@ -20,7 +22,9 @@ const FarmerDashboard = () => {
     unit: '',
     price: '',
     harvestDate: '',
-    description: ''
+    description: '',
+    assignedTransporter: '',
+    assignedWarehouse: ''
   });
 
   // Farm profile form data
@@ -37,7 +41,31 @@ const FarmerDashboard = () => {
   useEffect(() => {
     loadProducts();
     loadFarmProfile();
+    loadTransporters();
+    loadWarehouses();
   }, []);
+
+  // Fetch available transporters
+  const loadTransporters = async () => {
+    try {
+      const response = await axiosClient.get('/farmer/available-transporters');
+      setAvailableTransporters(response.data || []);
+    } catch (err) {
+      console.error('Load transporters error:', err);
+      console.error('Error details:', err.response?.data);
+    }
+  };
+
+  // Fetch available warehouses
+  const loadWarehouses = async () => {
+    try {
+      const response = await axiosClient.get('/farmer/available-warehouses');
+      setAvailableWarehouses(response.data || []);
+    } catch (err) {
+      console.error('Load warehouses error:', err);
+      console.error('Error details:', err.response?.data);
+    }
+  };
 
   // Fetch all products created by this farmer
   const loadProducts = async () => {
@@ -45,9 +73,16 @@ const FarmerDashboard = () => {
       setLoading(true);
       const response = await axiosClient.get('/farmer/products');
       setProducts(response.data.products || []);
+      setError(''); // Clear any previous errors
     } catch (err) {
-      setError('Failed to load products');
-      console.error('Load products error:', err);
+      // For new farmers with no products, don't show error - just set empty state
+      if (err.response?.status === 404 || err.response?.data?.message?.includes('No products found')) {
+        setProducts([]);
+      } else {
+        // Only show error for actual failures
+        setError('Failed to load products');
+        console.error('Load products error:', err);
+      }
     } finally {
       setLoading(false);
     }
@@ -78,6 +113,19 @@ const FarmerDashboard = () => {
   // Handle farm form input changes
   const handleFarmInputChange = (e) => {
     const { name, value } = e.target;
+    
+    // Special handling for phone number - only allow digits and limit to 10
+    if (name === 'phone') {
+      const phoneDigits = value.replace(/\D/g, '');
+      if (phoneDigits.length <= 10) {
+        setFarmForm(prev => ({
+          ...prev,
+          [name]: phoneDigits
+        }));
+      }
+      return;
+    }
+    
     setFarmForm(prev => ({
       ...prev,
       [name]: value
@@ -158,7 +206,9 @@ const FarmerDashboard = () => {
         unit: '',
         price: '',
         harvestDate: '',
-        description: ''
+        description: '',
+        assignedTransporter: '',
+        assignedWarehouse: ''
       });
 
       // Reload products list
@@ -364,9 +414,13 @@ const FarmerDashboard = () => {
                   name="phone"
                   value={farmForm.phone}
                   onChange={handleFarmInputChange}
+                  minLength={10}
+                  maxLength={10}
+                  pattern="[0-9]{10}"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="e.g., +91-9876543210"
+                  placeholder="9876543210"
                 />
+                <p className="text-xs text-gray-500 mt-1">Enter 10-digit mobile number</p>
               </div>
 
               {/* Form Actions */}
@@ -505,6 +559,46 @@ const FarmerDashboard = () => {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
                   required
                 />
+              </div>
+
+              {/* Assigned Transporter */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Assign Transporter (Optional)
+                </label>
+                <select
+                  name="assignedTransporter"
+                  value={productForm.assignedTransporter}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                >
+                  <option value="">Select Transporter</option>
+                  {availableTransporters.map((transporter) => (
+                    <option key={transporter._id} value={transporter._id}>
+                      {transporter.name} ({transporter.email})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Assigned Warehouse */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Assign Warehouse (Optional)
+                </label>
+                <select
+                  name="assignedWarehouse"
+                  value={productForm.assignedWarehouse}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                >
+                  <option value="">Select Warehouse</option>
+                  {availableWarehouses.map((warehouse) => (
+                    <option key={warehouse._id} value={warehouse._id}>
+                      {warehouse.name} ({warehouse.email})
+                    </option>
+                  ))}
+                </select>
               </div>
 
               {/* Description */}

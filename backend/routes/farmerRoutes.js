@@ -13,9 +13,17 @@ const router = express.Router();
 router.get('/products', auth, role('Farmer'), async (req, res, next) => {
   try {
     const Product = require('../models/Product');
-    const farmer = await Farmer.findOne({ user: req.session.user.id });
+    let farmer = await Farmer.findOne({ user: req.session.user.id });
     if (!farmer) {
-      return res.status(404).json({ message: 'Farmer profile not found' });
+      // Auto-create farmer profile if it doesn't exist
+      const User = require('../models/User');
+      const user = await User.findById(req.session.user.id);
+      farmer = await Farmer.create({
+        user: req.session.user.id,
+        name: user.name,
+        location: '',
+        phone: ''
+      });
     }
     
     const products = await Product.find({ farmer: farmer._id }).populate('farmer');
@@ -40,7 +48,9 @@ router.post(
     body('unit').trim().escape().notEmpty().withMessage('Unit is required'),
     body('price').isNumeric().withMessage('Price must be a number'),
     body('harvestDate').optional().isISO8601().withMessage('Invalid harvest date format'),
-    body('description').optional().trim().escape()
+    body('description').optional().trim().escape(),
+    body('assignedTransporter').optional().isMongoId().withMessage('Invalid transporter ID'),
+    body('assignedWarehouse').optional().isMongoId().withMessage('Invalid warehouse ID')
   ],
   async (req, res, next) => {
     const errors = validationResult(req);
@@ -49,12 +59,7 @@ router.post(
     }
 
     try {
-      const { name, category, quantity, unit, price, harvestDate, description } = req.body;
-      
-      // Debug logging
-      console.log('Received product data:', { name, category, quantity, unit, price, harvestDate, description });
-      console.log('Price type:', typeof price, 'Price value:', price);
-      console.log('Parsed price:', parseFloat(price));
+      const { name, category, quantity, unit, price, harvestDate, description, assignedTransporter, assignedWarehouse } = req.body;
       
       // Validate price manually
       if (!price || isNaN(parseFloat(price)) || parseFloat(price) <= 0) {
@@ -64,10 +69,16 @@ router.post(
       }
       
       // Check if farmer profile exists
-      const farmer = await Farmer.findOne({ user: req.session.user.id });
+      let farmer = await Farmer.findOne({ user: req.session.user.id });
       if (!farmer) {
-        return res.status(400).json({ 
-          message: 'Farmer profile not found. Please create your farmer profile first.' 
+        // Auto-create farmer profile if it doesn't exist
+        const User = require('../models/User');
+        const user = await User.findById(req.session.user.id);
+        farmer = await Farmer.create({
+          user: req.session.user.id,
+          name: user.name,
+          location: '',
+          phone: ''
         });
       }
 
@@ -80,10 +91,11 @@ router.post(
         price: parseFloat(price), // Include the price from form
         farmer: farmer._id,
         currentStage: 'harvested', // Explicitly set stage
-        isActive: true // Mark as active for supply chain
+        isActive: true, // Mark as active for supply chain
+        assignedTransporter: assignedTransporter || null,
+        assignedWarehouse: assignedWarehouse || null
       });
 
-      console.log('Created product with price:', product.price);
       res.status(201).json(product);
     } catch (err) {
       next(err);
@@ -153,7 +165,154 @@ router.put(
 );
 
 /**
+ * GET /api/farmer/profile
+ * Get current logged-in farmer's profile
+ * IMPORTANT: This must be defined BEFORE /:id route
+ */
+router.get('/profile', auth, role('Farmer'), async (req, res, next) => {
+  try {
+    let farmer = await Farmer.findOne({ user: req.session.user.id }).populate('user', 'name email');
+    if (!farmer) {
+      // Auto-create farmer profile if it doesn't exist
+      const User = require('../models/User');
+      const user = await User.findById(req.session.user.id);
+      farmer = await Farmer.create({
+        user: req.session.user.id,
+        name: user.name,
+        location: '',
+        phone: ''
+      });
+      // Re-fetch with populated user
+      farmer = await Farmer.findById(farmer._id).populate('user', 'name email');
+    }
+    
+    res.json({
+      _id: farmer._id,
+      name: farmer.name,
+      location: farmer.location,
+      address: farmer.address,
+      pincode: farmer.pincode,
+      farmSize: farmer.farmSize,
+      phone: farmer.phone,
+      user: farmer.user
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * PUT /api/farmer/profile
+ * Update current logged-in farmer's profile
+ */
+router.put(
+  '/profile',
+  auth,
+  role('Farmer'),
+  [
+    body('farmName').optional().trim().escape(),
+    body('location').trim().notEmpty().withMessage('Farm location is required'),
+    body('address').trim().notEmpty().withMessage('Farm address is required'),
+    body('pincode').trim().isLength({ min: 6, max: 6 }).withMessage('Pincode must be 6 digits'),
+    body('farmSize').optional().trim().escape(),
+    body('phone').optional().trim().matches(/^[\+]?[\d\s\-\(\)]+$/).withMessage('Invalid phone number format')
+  ],
+  async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const { farmName, location, address, pincode, farmSize, phone } = req.body;
+      
+      let farmer = await Farmer.findOne({ user: req.session.user.id });
+      if (!farmer) {
+        // Auto-create farmer profile if it doesn't exist
+        const User = require('../models/User');
+        const user = await User.findById(req.session.user.id);
+        farmer = await Farmer.create({
+          user: req.session.user.id,
+          name: farmName || user.name,
+          location: location || '',
+          address: address || '',
+          pincode: pincode || '',
+          farmSize: farmSize || '',
+          phone: phone || ''
+        });
+      } else {
+        // Update existing farmer profile
+        farmer = await Farmer.findOneAndUpdate(
+          { user: req.session.user.id },
+          {
+            name: farmName,
+            location,
+            address,
+            pincode,
+            farmSize,
+            phone
+          },
+          { new: true }
+        );
+      }
+      
+      // Populate user data
+      farmer = await Farmer.findById(farmer._id).populate('user', 'name email');
+
+      res.json({
+        message: 'Farm profile updated successfully',
+        farmer: {
+          _id: farmer._id,
+          name: farmer.name,
+          location: farmer.location,
+          address: farmer.address,
+          pincode: farmer.pincode,
+          farmSize: farmer.farmSize,
+          phone: farmer.phone,
+          user: farmer.user
+        }
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
+/**
+ * GET /api/farmer/available-transporters
+ * Get list of available transporters for farmers to choose
+ * IMPORTANT: This must be defined BEFORE /:id route
+ */
+router.get('/available-transporters', auth, role('Farmer'), async (req, res, next) => {
+  try {
+    const User = require('../models/User');
+    const transporters = await User.find({ role: 'Transporter' }, { _id: 1, name: 1, email: 1 });
+    res.json(transporters);
+  } catch (err) {
+    console.error('Error fetching transporters:', err);
+    next(err);
+  }
+});
+
+/**
+ * GET /api/farmer/available-warehouses
+ * Get list of available warehouses for farmers to choose
+ * IMPORTANT: This must be defined BEFORE /:id route
+ */
+router.get('/available-warehouses', auth, role('Farmer'), async (req, res, next) => {
+  try {
+    const User = require('../models/User');
+    const warehouses = await User.find({ role: 'Warehouse' }, { _id: 1, name: 1, email: 1 });
+    res.json(warehouses);
+  } catch (err) {
+    console.error('Error fetching warehouses:', err);
+    next(err);
+  }
+});
+
+/**
  * GET /api/farmer (Admin only - list all farmers)
+ * IMPORTANT: This generic route must be defined AFTER all specific routes
  */
 router.get('/', auth, role('Admin'), async (req, res, next) => {
   try {
@@ -166,6 +325,7 @@ router.get('/', auth, role('Admin'), async (req, res, next) => {
 
 /**
  * GET /api/farmer/:id (Admin only - get specific farmer)
+ * IMPORTANT: This parameterized route must be defined LAST to avoid catching specific routes
  */
 router.get(
   '/:id',
@@ -214,93 +374,6 @@ router.delete(
         return res.status(404).json({ message: 'Farmer not found' });
       }
       res.json({ message: 'Farmer profile deleted successfully' });
-    } catch (err) {
-      next(err);
-    }
-  }
-);
-
-/**
- * GET /api/farmer/profile
- * Get current logged-in farmer's profile
- */
-router.get('/profile', auth, role('Farmer'), async (req, res, next) => {
-  try {
-    const farmer = await Farmer.findOne({ user: req.session.user.id }).populate('user', 'name email');
-    if (!farmer) {
-      return res.status(404).json({ message: 'Farmer profile not found' });
-    }
-    
-    res.json({
-      _id: farmer._id,
-      name: farmer.name,
-      location: farmer.location,
-      address: farmer.address,
-      pincode: farmer.pincode,
-      farmSize: farmer.farmSize,
-      phone: farmer.phone,
-      user: farmer.user
-    });
-  } catch (err) {
-    next(err);
-  }
-});
-
-/**
- * PUT /api/farmer/profile
- * Update current logged-in farmer's profile
- */
-router.put(
-  '/profile',
-  auth,
-  role('Farmer'),
-  [
-    body('farmName').optional().trim().escape(),
-    body('location').trim().notEmpty().withMessage('Farm location is required'),
-    body('address').trim().notEmpty().withMessage('Farm address is required'),
-    body('pincode').trim().isLength({ min: 6, max: 6 }).withMessage('Pincode must be 6 digits'),
-    body('farmSize').optional().trim().escape(),
-    body('phone').optional().trim().matches(/^[\+]?[\d\s\-\(\)]+$/).withMessage('Invalid phone number format')
-  ],
-  async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    try {
-      const { farmName, location, address, pincode, farmSize, phone } = req.body;
-      
-      const farmer = await Farmer.findOneAndUpdate(
-        { user: req.session.user.id },
-        {
-          name: farmName,
-          location,
-          address,
-          pincode,
-          farmSize,
-          phone
-        },
-        { new: true }
-      ).populate('user', 'name email');
-
-      if (!farmer) {
-        return res.status(404).json({ message: 'Farmer profile not found' });
-      }
-
-      res.json({
-        message: 'Farm profile updated successfully',
-        farmer: {
-          _id: farmer._id,
-          name: farmer.name,
-          location: farmer.location,
-          address: farmer.address,
-          pincode: farmer.pincode,
-          farmSize: farmer.farmSize,
-          phone: farmer.phone,
-          user: farmer.user
-        }
-      });
     } catch (err) {
       next(err);
     }

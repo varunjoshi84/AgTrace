@@ -8,6 +8,29 @@ const eventBus = require('../events/eventBus');
 const router = express.Router();
 
 /**
+ * GET /api/warehouse/assigned-products
+ * Get products assigned and delivered to current warehouse
+ */
+router.get('/assigned-products', auth, role('Warehouse'), async (req, res, next) => {
+  try {
+    const Product = require('../models/Product');
+    const assignedProducts = await Product.find({ 
+      assignedWarehouse: req.session.user.id,
+      currentStage: 'in_warehouse',
+      isActive: true 
+    })
+    .populate('farmer', 'name location')
+    .populate('assignedTransporter', 'name email')
+    .populate('assignedRetailer', 'name email');
+
+    res.json(assignedProducts);
+  } catch (err) {
+    console.error('Error fetching warehouse assigned products:', err);
+    next(err);
+  }
+});
+
+/**
  * GET /api/warehouse
  * List warehouse entries (filtered by role)
  */
@@ -159,15 +182,18 @@ router.put(
  */
 router.put('/:id/dispatch', auth, role('Warehouse', 'Admin'), async (req, res, next) => {
   try {
+    const { assignedRetailer } = req.body;
+    
     const warehouse = await Warehouse.findById(req.params.id);
     if (!warehouse) {
       return res.status(404).json({ message: 'Warehouse entry not found' });
     }
     
-    // Move product to in_retail stage
+    // Move product to in_retail stage and assign retailer
     const Product = require('../models/Product');
     await Product.findByIdAndUpdate(warehouse.product, { 
-      currentStage: 'in_retail' 
+      currentStage: 'in_retail',
+      assignedRetailer: assignedRetailer || null
     });
 
     eventBus.emit('status:updated', { productId: warehouse.product, type: 'warehouse' });
@@ -176,6 +202,60 @@ router.put('/:id/dispatch', auth, role('Warehouse', 'Admin'), async (req, res, n
 
     res.json({ message: 'Product dispatched to retail successfully', warehouse });
   } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * PUT /api/warehouse/product/:productId/dispatch
+ * Dispatch product from warehouse to retailer (move to in_retail stage)
+ */
+router.put('/product/:productId/dispatch', auth, role('Warehouse'), async (req, res, next) => {
+  try {
+    const { assignedRetailer } = req.body;
+    
+    if (!assignedRetailer) {
+      return res.status(400).json({ message: 'Retailer ID is required' });
+    }
+
+    const Product = require('../models/Product');
+    const product = await Product.findOne({
+      _id: req.params.productId,
+      assignedWarehouse: req.session.user.id,
+      currentStage: 'in_warehouse'
+    });
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found or not in your warehouse' });
+    }
+
+    // Update product stage and assign retailer
+    product.currentStage = 'in_retail';
+    product.assignedRetailer = assignedRetailer;
+    await product.save();
+    
+    eventBus.emit('status:updated', { productId: product._id, type: 'warehouse' });
+    const io = req.app.get('io');
+    if (io) io.emit('warehouse:dispatched', { productId: product._id });
+
+    res.json({ message: 'Product dispatched to retailer successfully', product });
+  } catch (err) {
+    console.error('Error dispatching product:', err);
+    next(err);
+  }
+});
+
+/**
+ * GET /api/warehouse/available-retailers
+ * Get list of available retailers for warehouses to choose
+ */
+router.get('/available-retailers', auth, role('Warehouse', 'Admin'), async (req, res, next) => {
+  try {
+    const User = require('../models/User');
+    const retailers = await User.find({ role: 'Retailer' }, { _id: 1, name: 1, email: 1 });
+    res.json(retailers);
+  } catch (err) {
+    console.error('Error fetching retailers:', err);
     next(err);
   }
 });

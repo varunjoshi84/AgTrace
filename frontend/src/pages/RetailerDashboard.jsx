@@ -4,148 +4,146 @@ import axiosClient from '../api/axiosClient';
 
 const RetailerDashboard = () => {
   const { user } = useAuth();
-  const [availableProducts, setAvailableProducts] = useState([]);
-  const [myRetailEntries, setMyRetailEntries] = useState([]);
+  const [assignedProducts, setAssignedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-
-  // Form states
-  const [showCreateForm, setShowCreateForm] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [showSaleForm, setShowSaleForm] = useState(false);
-  const [selectedRetailEntry, setSelectedRetailEntry] = useState(null);
-  
-  const [retailForm, setRetailForm] = useState({
-    shop_name: '',
-    selling_price: '',
-    stock: ''
-  });
-
-  const [saleForm, setSaleForm] = useState({
-    customer_name: '',
-    customer_phone: '',
-    quantity_sold: '',
-    sale_price: ''
-  });
-
+  const [customerPhones, setCustomerPhones] = useState({});
+  const [saleQuantities, setSaleQuantities] = useState({});
+  const [salePrices, setSalePrices] = useState({});
+  const [showSoldProducts, setShowSoldProducts] = useState(false);
   const [customerReceipt, setCustomerReceipt] = useState(null);
-  const [showMoreRetail, setShowMoreRetail] = useState(false);
-  const RETAIL_ITEMS_PER_PAGE = 10;
 
   useEffect(() => {
-    loadData();
+    loadAssignedProducts();
   }, []);
 
-  const loadData = async () => {
+  const loadAssignedProducts = async () => {
     try {
       setLoading(true);
-      const [productsResponse, retailResponse] = await Promise.all([
-        axiosClient.get('/retail/available-products'),
-        axiosClient.get('/retail')
-      ]);
-      
-      setAvailableProducts(productsResponse.data || []);
-      setMyRetailEntries(retailResponse.data || []);
+      const response = await axiosClient.get('/retail/assigned-products');
+      setAssignedProducts(response.data || []);
+      setError('');
     } catch (err) {
-      setError('Failed to load data');
-      console.error('Load data error:', err);
+      if (err.response?.status === 404) {
+        setAssignedProducts([]);
+      } else {
+        setError('Failed to load assigned products');
+        console.error('Load products error:', err);
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  const handleCreateRetailEntry = async (e) => {
-    e.preventDefault();
+  const handleSellProduct = async (productId) => {
+    const phone = customerPhones[productId];
+    const quantity = parseInt(saleQuantities[productId]) || 1;
+    const salePrice = parseFloat(salePrices[productId]) || 0;
     
-    if (!selectedProduct) {
-      setError('Please select a product');
+    // Find the product to check available quantity
+    const product = assignedProducts.find(p => p._id === productId);
+    if (!product) {
+      setError('Product not found');
+      setTimeout(() => setError(''), 3000);
+      return;
+    }
+
+    // Validate quantity against available stock
+    if (quantity > product.quantity) {
+      setError(`Cannot sell ${quantity} units. Only ${product.quantity} units available in stock.`);
+      setTimeout(() => setError(''), 3000);
+      return;
+    }
+    
+    const phoneDigits = phone?.replace(/\D/g, '');
+    if (!phoneDigits || phoneDigits.length !== 10) {
+      setError('Please enter a valid 10-digit phone number');
+      setTimeout(() => setError(''), 3000);
+      return;
+    }
+
+    if (quantity <= 0) {
+      setError('Please enter a valid quantity');
+      setTimeout(() => setError(''), 3000);
+      return;
+    }
+
+    if (salePrice <= 0) {
+      setError('Please enter a valid sale price');
+      setTimeout(() => setError(''), 3000);
       return;
     }
 
     try {
-      setError('');
+      // Find the retail entry for this product
+      const retailResponse = await axiosClient.get('/retail');
+      const retailEntry = retailResponse.data.find(r => r.product?._id === productId || r.product === productId);
       
-      await axiosClient.post('/retail', {
-        product: selectedProduct._id,
-        ...retailForm,
-        selling_price: parseFloat(retailForm.selling_price),
-        stock: parseInt(retailForm.stock)
-      });
+      if (!retailEntry) {
+        // Create retail entry first if it doesn't exist
+        await axiosClient.post('/retail', {
+          product: productId,
+          shop_name: user.name + "'s Shop",
+          selling_price: salePrice,
+          stock: quantity
+        });
+        
+        // Fetch again to get the new entry
+        const newRetailResponse = await axiosClient.get('/retail');
+        const newRetailEntry = newRetailResponse.data.find(r => r.product?._id === productId || r.product === productId);
+        
+        if (!newRetailEntry) {
+          setError('Failed to create retail entry');
+          return;
+        }
 
-      setSuccess('Product listed for retail successfully!');
-      setShowCreateForm(false);
-      setSelectedProduct(null);
-      setRetailForm({
-        shop_name: '',
-        selling_price: '',
-        stock: ''
-      });
-      
-      loadData();
-      setTimeout(() => setSuccess(''), 3000);
-    } catch (err) {
-      setError(err.response?.data?.message || 'Failed to list product');
-    }
-  };
-
-  const handleSaleToCustomer = async (e) => {
-    e.preventDefault();
-    
-    try {
-      setError('');
-      
-      const quantitySold = parseInt(saleForm.quantity_sold);
-      
-      // Check if enough stock is available
-      if (quantitySold > selectedRetailEntry.stock) {
-        setError('Not enough stock available');
-        return;
-      }
-
-      // If selling all stock, mark as sold out
-      if (quantitySold === selectedRetailEntry.stock) {
-        await axiosClient.put(`/retail/${selectedRetailEntry._id}/sell-out`);
+        await axiosClient.put(`/retail/${newRetailEntry._id}/sell-out`, {
+          customerPhone: phone
+        });
       } else {
-        // Otherwise, just update the stock
-        await axiosClient.put(`/retail/${selectedRetailEntry._id}`, {
-          stock: selectedRetailEntry.stock - quantitySold
+        await axiosClient.put(`/retail/${retailEntry._id}/sell-out`, {
+          customerPhone: phone
         });
       }
-
-      // Generate customer receipt
-      console.log('Selected retail entry for receipt:', selectedRetailEntry);
-      console.log('Product data:', selectedRetailEntry.product);
       
+      // Generate customer receipt
       const receipt = {
         receiptId: `RCP${Date.now()}`,
-        productCode: selectedRetailEntry.product?.productCode || 'N/A',
-        productName: selectedRetailEntry.product?.product_name || 'N/A',
-        customerName: saleForm.customer_name,
-        customerPhone: saleForm.customer_phone,
-        quantitySold: quantitySold,
-        pricePerUnit: parseFloat(saleForm.sale_price),
-        totalAmount: quantitySold * parseFloat(saleForm.sale_price),
-        shopName: selectedRetailEntry.shop_name,
+        productCode: product.productCode,
+        productName: product.product_name,
+        customerPhone: phone,
+        quantitySold: quantity,
+        pricePerUnit: salePrice,
+        totalAmount: quantity * salePrice,
+        shopName: user.name + "'s Shop",
         saleDate: new Date().toISOString(),
-        trackingMessage: `Use Product Code "${selectedRetailEntry.product?.productCode || 'N/A'}" to track your product journey at our website.`
+        farmerName: product.farmer?.name || 'N/A',
+        trackingMessage: `Use Product Code "${product.productCode}" to track your product journey at our website.`
       };
-
-      setCustomerReceipt(receipt);
-      setSuccess('Sale completed successfully!');
-      setShowSaleForm(false);
-      setSelectedRetailEntry(null);
-      setSaleForm({
-        customer_name: '',
-        customer_phone: '',
-        quantity_sold: '',
-        sale_price: ''
-      });
       
-      loadData();
-      setTimeout(() => setSuccess(''), 3000);
+      setCustomerReceipt(receipt);
+      setSuccess(`Product sold successfully! Quantity: ${quantity}, Price: ₹${salePrice}, Total: ₹${quantity * salePrice}`);
+      setCustomerPhones(prev => {
+        const newState = {...prev};
+        delete newState[productId];
+        return newState;
+      });
+      setSaleQuantities(prev => {
+        const newState = {...prev};
+        delete newState[productId];
+        return newState;
+      });
+      setSalePrices(prev => {
+        const newState = {...prev};
+        delete newState[productId];
+        return newState;
+      });
+      loadAssignedProducts();
+      setTimeout(() => setSuccess(''), 5000);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to complete sale');
+      setError(err.response?.data?.message || 'Failed to sell product');
+      setTimeout(() => setError(''), 3000);
     }
   };
 
@@ -156,12 +154,8 @@ const RetailerDashboard = () => {
     return date.toLocaleDateString('en-IN');
   };
 
-  const formatPrice = (price) => {
-    if (price === null || price === undefined || isNaN(price)) {
-      return '₹0.00';
-    }
-    return `₹${parseFloat(price).toFixed(2)}`;
-  };
+  const availableProducts = assignedProducts.filter(p => p.currentStage === 'in_retail');
+  const soldProducts = assignedProducts.filter(p => p.currentStage === 'sold');
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -172,7 +166,7 @@ const RetailerDashboard = () => {
             Retailer Dashboard
           </h1>
           <p className="text-gray-600 mt-1">
-            Welcome back, {user?.name}! Manage retail inventory and sales.
+            Welcome back, {user?.name}! Manage your retail inventory and sales.
           </p>
         </div>
 
@@ -189,376 +183,283 @@ const RetailerDashboard = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Products Available for Retail */}
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">
-                Available for Retail ({availableProducts.length})
-              </h2>
-              <span className="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">
-                Stage: In Retail
-              </span>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600 text-sm">Available for Sale</p>
+                <p className="text-3xl font-bold text-blue-600">{availableProducts.length}</p>
+              </div>
+              <div className="bg-blue-100 rounded-full p-3">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+              </div>
             </div>
-
-            {loading ? (
-              <div className="text-center py-8 text-gray-500">Loading...</div>
-            ) : availableProducts.length === 0 ? (
-              <div className="text-center py-8 text-gray-500">
-                No products available for retail
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {availableProducts.map((product) => (
-                  <div key={product._id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        {product.product_name}
-                      </h3>
-                      <button
-                        onClick={() => {
-                          setSelectedProduct(product);
-                          setShowCreateForm(true);
-                        }}
-                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
-                      >
-                        List for Sale
-                      </button>
-                    </div>
-                    
-                    <div className="space-y-1 text-sm text-gray-600">
-                      <div><span className="font-medium">Product Code:</span> {product.productCode}</div>
-                      <div><span className="font-medium">Farmer:</span> {product.farmer?.name}</div>
-                      <div><span className="font-medium">Quantity:</span> {product.quantity} units</div>
-                      <div><span className="font-medium">Quality:</span> {product.quality}</div>
-                      <div><span className="font-medium">Harvest Date:</span> {formatDate(product.harvest_date)}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
-          {/* My Retail Inventory */}
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              My Retail Inventory ({myRetailEntries.length})
-            </h2>
-
-            {loading ? (
-              <div className="text-center py-8 text-gray-500">Loading...</div>
-            ) : myRetailEntries.length === 0 ? (
-              <div className="text-center py-8 text-gray-500">
-                No products in retail inventory
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600 text-sm">Sold Products</p>
+                <p className="text-3xl font-bold text-green-600">{soldProducts.length}</p>
               </div>
-            ) : (
-              <div className="space-y-4">
-                {(showMoreRetail ? myRetailEntries : myRetailEntries.slice(0, RETAIL_ITEMS_PER_PAGE)).map((entry) => (
-                  <div key={entry._id} className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 mb-2">
-                          {entry.product?.product_name || 'Product'}
-                        </h4>
-                        <div className="text-sm text-gray-600">
-                          <div><span className="font-medium">Shop:</span> {entry.shop_name}</div>
-                          <div><span className="font-medium">Price:</span> {formatPrice(entry.selling_price)} per unit</div>
-                          <div><span className="font-medium">Stock:</span> {entry.stock} units</div>
-                          <div><span className="font-medium">Product Code:</span> {entry.product?.productCode}</div>
-                        </div>
-                      </div>
-                      
-                      {entry.stock > 0 && (
-                        <button
-                          onClick={() => {
-                            setSelectedRetailEntry(entry);
-                            setShowSaleForm(true);
-                            setSaleForm(prev => ({
-                              ...prev,
-                              sale_price: entry.selling_price
-                            }));
-                          }}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
-                        >
-                          Sell to Customer
-                        </button>
-                      )}
-                    </div>
-                    
-                    {entry.stock === 0 && (
-                      <div className="mt-2">
-                        <span className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">
-                          Sold Out
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                ))}
-                
-                {myRetailEntries.length > RETAIL_ITEMS_PER_PAGE && (
-                  <div className="text-center pt-4">
-                    <button
-                      onClick={() => setShowMoreRetail(!showMoreRetail)}
-                      className="text-blue-600 hover:text-blue-800 font-medium text-sm"
-                    >
-                      {showMoreRetail 
-                        ? `Show Less (showing ${myRetailEntries.length} items)` 
-                        : `Show More (${myRetailEntries.length - RETAIL_ITEMS_PER_PAGE} more items)`
-                      }
-                    </button>
-                  </div>
-                )}
+              <div className="bg-green-100 rounded-full p-3">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-            )}
+            </div>
           </div>
         </div>
 
-        {/* Create Retail Entry Form Modal */}
-        {showCreateForm && selectedProduct && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg p-6 w-full max-w-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                List for Sale: {selectedProduct.product_name}
-              </h3>
-              
-              <form onSubmit={handleCreateRetailEntry} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Shop Name
-                  </label>
-                  <input
-                    type="text"
-                    value={retailForm.shop_name}
-                    onChange={(e) => setRetailForm(prev => ({
-                      ...prev,
-                      shop_name: e.target.value
-                    }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    placeholder="e.g., Fresh Mart"
-                    required
-                  />
-                </div>
+        {/* Toggle Button */}
+        <div className="flex justify-center mb-6">
+          <button
+            onClick={() => setShowSoldProducts(!showSoldProducts)}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+          >
+            {showSoldProducts ? 'Show Available Products' : 'Show Sold Products'}
+          </button>
+        </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Selling Price per Unit (₹)
-                  </label>
-                  <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    value={retailForm.selling_price}
-                    onChange={(e) => setRetailForm(prev => ({
-                      ...prev,
-                      selling_price: e.target.value
-                    }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    placeholder="e.g., 10.50"
-                    required
-                  />
-                </div>
+        {/* Products */}
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            {showSoldProducts ? `Sold Products (${soldProducts.length})` : `Products Available for Sale (${availableProducts.length})`}
+          </h2>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Stock Quantity
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    max={selectedProduct.quantity}
-                    value={retailForm.stock}
-                    onChange={(e) => setRetailForm(prev => ({
-                      ...prev,
-                      stock: e.target.value
-                    }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    placeholder={`Max: ${selectedProduct.quantity}`}
-                    required
-                  />
-                </div>
-
-                <div className="flex gap-3 pt-4">
-                  <button
-                    type="submit"
-                    className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium"
-                  >
-                    List for Sale
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowCreateForm(false);
-                      setSelectedProduct(null);
-                    }}
-                    className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 rounded-md font-medium"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
+          {loading ? (
+            <div className="text-center py-8 text-gray-500">Loading...</div>
+          ) : (showSoldProducts ? soldProducts : availableProducts).length === 0 ? (
+            <div className="text-center py-8 text-gray-500">
+              {showSoldProducts ? 'No products sold yet' : 'No products available in your store yet'}
             </div>
-          </div>
-        )}
-
-        {/* Sale to Customer Form Modal */}
-        {showSaleForm && selectedRetailEntry && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg p-6 w-full max-w-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Sell to Customer: {selectedRetailEntry.product?.product_name}
-              </h3>
-              
-              <form onSubmit={handleSaleToCustomer} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Customer Name
-                  </label>
-                  <input
-                    type="text"
-                    value={saleForm.customer_name}
-                    onChange={(e) => setSaleForm(prev => ({
-                      ...prev,
-                      customer_name: e.target.value
-                    }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    placeholder="Customer's full name"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Customer Phone
-                  </label>
-                  <input
-                    type="tel"
-                    value={saleForm.customer_phone}
-                    onChange={(e) => setSaleForm(prev => ({
-                      ...prev,
-                      customer_phone: e.target.value
-                    }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    placeholder="Phone number"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Quantity to Sell
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    max={selectedRetailEntry.stock}
-                    value={saleForm.quantity_sold}
-                    onChange={(e) => setSaleForm(prev => ({
-                      ...prev,
-                      quantity_sold: e.target.value
-                    }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    placeholder={`Max: ${selectedRetailEntry.stock}`}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Sale Price per Unit (₹)
-                  </label>
-                  <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    value={saleForm.sale_price}
-                    onChange={(e) => setSaleForm(prev => ({
-                      ...prev,
-                      sale_price: e.target.value
-                    }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    required
-                  />
-                </div>
-
-                {saleForm.quantity_sold && saleForm.sale_price && (
-                  <div className="bg-gray-50 p-3 rounded-md">
-                    <div className="text-sm text-gray-600">
-                      <span className="font-medium">Total Amount:</span> {formatPrice(parseFloat(saleForm.quantity_sold || 0) * parseFloat(saleForm.sale_price || 0))}
-                    </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {(showSoldProducts ? soldProducts : availableProducts).map((product) => (
+                <div key={product._id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {product.product_name}
+                    </h3>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      product.currentStage === 'in_retail' ? 'bg-indigo-100 text-indigo-800' :
+                      product.currentStage === 'sold' ? 'bg-green-100 text-green-800' :
+                      'bg-gray-100 text-gray-800'
+                    }`}>
+                      {product.currentStage === 'in_retail' ? 'In Store' :
+                       product.currentStage === 'sold' ? 'Sold' : product.currentStage}
+                    </span>
                   </div>
-                )}
+                  
+                  <div className="space-y-2 text-sm text-gray-600 mb-4">
+                    <div className="flex items-center justify-between">
+                      <div><span className="font-medium">Code:</span> {product.productCode}</div>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(product.productCode);
+                          setSuccess('Product code copied to clipboard!');
+                          setTimeout(() => setSuccess(''), 2000);
+                        }}
+                        className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 rounded transition-colors"
+                        title="Copy product code"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                    <div><span className="font-medium">Farmer:</span> {product.farmer?.name}</div>
+                    <div><span className="font-medium">Origin:</span> {product.farmer?.location || 'Not specified'}</div>
+                    <div><span className="font-medium">Warehouse:</span> {product.assignedWarehouse?.name || 'Not specified'}</div>
+                    <div><span className="font-medium">Available:</span> <span className="text-green-600 font-semibold">{product.quantity} units</span></div>
+                    <div><span className="font-medium">Price:</span> ₹{product.price || 0}</div>
+                    <div><span className="font-medium">Harvest Date:</span> {formatDate(product.harvest_date)}</div>
+                    {product.customerPhone && (
+                      <div><span className="font-medium">Customer:</span> {product.customerPhone}</div>
+                    )}
+                  </div>
 
-                <div className="flex gap-3 pt-4">
-                  <button
-                    type="submit"
-                    className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium"
-                  >
-                    Complete Sale
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowSaleForm(false);
-                      setSelectedRetailEntry(null);
-                    }}
-                    className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 rounded-md font-medium"
-                  >
-                    Cancel
-                  </button>
+                  {!showSoldProducts && product.currentStage === 'in_retail' && (
+                    <div className="space-y-3">
+                      <label className="block text-sm font-medium text-gray-700">
+                        Quantity to Sell: <span className="text-xs text-gray-500">(Max: {product.quantity})</span>
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        max={product.quantity}
+                        value={saleQuantities[product._id] || ''}
+                        onChange={(e) => {
+                          const val = parseInt(e.target.value) || 0;
+                          if (val <= product.quantity) {
+                            setSaleQuantities(prev => ({
+                              ...prev,
+                              [product._id]: e.target.value
+                            }));
+                          }
+                        }}
+                        placeholder={`Max ${product.quantity} units`}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                      />
+                      {saleQuantities[product._id] && parseInt(saleQuantities[product._id]) > product.quantity && (
+                        <p className="text-xs text-red-600">Cannot exceed available stock of {product.quantity} units</p>
+                      )}
+
+                      <label className="block text-sm font-medium text-gray-700 mt-2">
+                        Selling Price (₹):
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={salePrices[product._id] || ''}
+                        onChange={(e) => setSalePrices(prev => ({
+                          ...prev,
+                          [product._id]: e.target.value
+                        }))}
+                        placeholder="Enter price per unit"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                      />
+
+                      {saleQuantities[product._id] && salePrices[product._id] && (
+                        <div className="bg-blue-50 border border-blue-200 rounded px-3 py-2 text-sm">
+                          <span className="font-medium">Total Amount:</span> ₹{(parseFloat(saleQuantities[product._id] || 0) * parseFloat(salePrices[product._id] || 0)).toFixed(2)}
+                        </div>
+                      )}
+
+                      <label className="block text-sm font-medium text-gray-700 mt-2">
+                        Customer Phone Number:
+                      </label>
+                      <input
+                        type="tel"
+                        value={customerPhones[product._id] || ''}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, '');
+                          if (value.length <= 10) {
+                            setCustomerPhones(prev => ({
+                              ...prev,
+                              [product._id]: value
+                            }));
+                          }
+                        }}
+                        placeholder="9876543210"
+                        minLength={10}
+                        maxLength={10}
+                        pattern="[0-9]{10}"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+                      />
+                      <p className="text-xs text-gray-500">Enter 10-digit mobile number</p>
+                      
+                      <button
+                        onClick={() => handleSellProduct(product._id)}
+                        disabled={!customerPhones[product._id] || !saleQuantities[product._id] || !salePrices[product._id]}
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                      >
+                        Sell to Customer
+                      </button>
+                    </div>
+                  )}
                 </div>
-              </form>
+              ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Customer Receipt Modal */}
         {customerReceipt && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-lg p-6 w-full max-w-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Customer Receipt
-              </h3>
+              <div className="text-center mb-4">
+                <h3 className="text-xl font-bold text-gray-900">Sale Receipt</h3>
+                <p className="text-sm text-gray-500">Receipt ID: {customerReceipt.receiptId}</p>
+              </div>
               
-              <div className="bg-gray-50 p-4 rounded-md space-y-2 text-sm">
-                <div className="text-center mb-4">
-                  <div className="font-bold text-lg">{customerReceipt.shopName}</div>
-                  <div className="text-gray-600">Sales Receipt</div>
+              <div className="border-t border-b border-gray-200 py-4 space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Shop:</span>
+                  <span className="font-medium">{customerReceipt.shopName}</span>
                 </div>
-                
-                <div><span className="font-medium">Receipt ID:</span> {customerReceipt.receiptId}</div>
-                <div><span className="font-medium">Date:</span> {formatDate(customerReceipt.saleDate)}</div>
-                <hr className="my-2" />
-                
-                <div><span className="font-medium">Customer:</span> {customerReceipt.customerName}</div>
-                <div><span className="font-medium">Phone:</span> {customerReceipt.customerPhone}</div>
-                <hr className="my-2" />
-                
-                <div><span className="font-medium">Product:</span> {customerReceipt.productName}</div>
-                <div><span className="font-medium">Product Code:</span> <span className="font-mono text-xs">{customerReceipt.productCode}</span></div>
-                <div><span className="font-medium">Quantity:</span> {customerReceipt.quantitySold} units</div>
-                <div><span className="font-medium">Price per unit:</span> {formatPrice(customerReceipt.pricePerUnit)}</div>
-                <div className="font-bold"><span>Total Amount:</span> {formatPrice(customerReceipt.totalAmount)}</div>
-                
-                <hr className="my-2" />
-                <div className="bg-blue-50 p-2 rounded text-xs">
-                  <div className="font-medium text-blue-900 mb-1">🔍 Track Your Product:</div>
-                  <div className="text-blue-700">{customerReceipt.trackingMessage}</div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Date:</span>
+                  <span className="font-medium">{new Date(customerReceipt.saleDate).toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Product:</span>
+                  <span className="font-medium">{customerReceipt.productName}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Product Code:</span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-medium">{customerReceipt.productCode}</span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(customerReceipt.productCode);
+                        setSuccess('Product code copied!');
+                        setTimeout(() => setSuccess(''), 2000);
+                      }}
+                      className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 rounded"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Farmer:</span>
+                  <span className="font-medium">{customerReceipt.farmerName}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Customer Phone:</span>
+                  <span className="font-medium">{customerReceipt.customerPhone}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Quantity:</span>
+                  <span className="font-medium">{customerReceipt.quantitySold} units</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Price per unit:</span>
+                  <span className="font-medium">₹{customerReceipt.pricePerUnit.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-lg font-bold border-t pt-2 mt-2">
+                  <span>Total Amount:</span>
+                  <span className="text-green-600">₹{customerReceipt.totalAmount.toFixed(2)}</span>
                 </div>
               </div>
 
-              <div className="flex gap-3 pt-4">
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                <p className="text-xs text-blue-800 text-center">{customerReceipt.trackingMessage}</p>
+              </div>
+
+              <div className="mt-4 flex gap-2">
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText(`Product Code: ${customerReceipt.productCode}\n\nTrack your product journey at our website using this code.`);
-                    alert('Product code copied to clipboard!');
+                    const receiptText = `
+SALE RECEIPT
+${customerReceipt.shopName}
+Receipt ID: ${customerReceipt.receiptId}
+Date: ${new Date(customerReceipt.saleDate).toLocaleString()}
+
+Product: ${customerReceipt.productName}
+Product Code: ${customerReceipt.productCode}
+Farmer: ${customerReceipt.farmerName}
+Customer: ${customerReceipt.customerPhone}
+Quantity: ${customerReceipt.quantitySold} units
+Price: ₹${customerReceipt.pricePerUnit.toFixed(2)} per unit
+Total: ₹${customerReceipt.totalAmount.toFixed(2)}
+
+${customerReceipt.trackingMessage}
+                    `.trim();
+                    navigator.clipboard.writeText(receiptText);
+                    setSuccess('Receipt copied to clipboard!');
+                    setTimeout(() => setSuccess(''), 2000);
                   }}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-medium"
+                  className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium"
                 >
-                  Copy Product Code
+                  Copy Receipt
                 </button>
                 <button
                   onClick={() => setCustomerReceipt(null)}
-                  className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 rounded-md font-medium"
+                  className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-md text-sm font-medium"
                 >
                   Close
                 </button>

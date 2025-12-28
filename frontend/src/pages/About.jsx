@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Leaf, Users } from 'lucide-react';
+import { Shield, Leaf, Users, Warehouse } from 'lucide-react';
 
 export default function About() {
   return (
@@ -16,7 +16,7 @@ export default function About() {
 
       {/* Mission Section */}
       <div className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="text-center space-y-4 p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
               <Leaf size={32} />
@@ -31,9 +31,19 @@ export default function About() {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
               <Users size={32} />
             </div>
-            <h3 className="text-2xl font-heading font-bold">For Suppliers</h3>
+            <h3 className="text-2xl font-heading font-bold">For Transporters</h3>
             <p className="text-muted-foreground">
               Streamlining logistics with real-time tracking, automated status updates, and immutable proof of handling and delivery.
+            </p>
+          </div>
+
+          <div className="text-center space-y-4 p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
+              <Warehouse size={32} />
+            </div>
+            <h3 className="text-2xl font-heading font-bold">For Warehouses</h3>
+            <p className="text-muted-foreground">
+              Efficient storage management with precise location tracking, temperature control, and seamless dispatch to retailers.
             </p>
           </div>
 

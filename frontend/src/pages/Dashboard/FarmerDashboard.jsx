@@ -40,9 +40,22 @@ export default function FarmerDashboard() {
         soldProducts,
         totalRevenue
       });
+      setError(''); // Clear any previous errors
     } catch (err) {
-      setError('Failed to load farmer data');
-      console.error('Load farmer data error:', err);
+      // For new users with no data, don't show error - just set empty state
+      if (err.response?.status === 404 || err.response?.data?.message?.includes('No products found')) {
+        setProducts([]);
+        setStats({
+          totalProducts: 0,
+          activeProducts: 0,
+          soldProducts: 0,
+          totalRevenue: 0
+        });
+      } else {
+        // Only show error for actual failures
+        setError('Failed to load farmer data');
+        console.error('Load farmer data error:', err);
+      }
     } finally {
       setLoading(false);
     }

@@ -296,6 +296,36 @@ const TrackPage = () => {
                     </div>
                   </div>
                 )}
+                
+                {/* Display warehouse storage details if available */}
+                {(step.storageLocation || step.storageType) && (
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-3">
+                    <div className="flex items-start">
+                      <svg className="w-4 h-4 mt-0.5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                      <div className="text-sm text-blue-800 flex-1">
+                        <span className="font-semibold">Storage Details:</span>
+                        <div className="mt-1 space-y-1">
+                          {step.storageLocation && (
+                            <div className="flex items-center">
+                              <span className="text-blue-600 mr-2">📦</span>
+                              <span className="font-medium">Shelf Number:</span>
+                              <span className="ml-1 bg-blue-100 px-2 py-0.5 rounded">{step.storageLocation}</span>
+                            </div>
+                          )}
+                          {step.storageType && (
+                            <div className="flex items-center">
+                              <span className="text-blue-600 mr-2">❄️</span>
+                              <span className="font-medium">Storage Type:</span>
+                              <span className="ml-1 bg-blue-100 px-2 py-0.5 rounded">{step.storageType}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -400,9 +430,17 @@ const TrackPage = () => {
                 <input
                   type="tel"
                   value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, '');
+                    if (value.length <= 10) {
+                      setPhoneNumber(value);
+                    }
+                  }}
+                  minLength={10}
+                  maxLength={10}
+                  pattern="[0-9]{10}"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  placeholder="Enter Phone Number"
+                  placeholder="Enter 10-digit Phone Number"
                 />
               )}
             </div>
@@ -602,13 +640,36 @@ const TrackPage = () => {
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-gray-900">{purchase.product_name || 'Product'}</h3>
                         <p className="text-sm text-gray-500">Product Code: {purchase.productCode || 'N/A'}</p>
-                        <p className="text-sm text-gray-500">Shop: {purchase.shop_name || 'N/A'}</p>
+                        <p className="text-sm text-gray-500">Quantity: {purchase.quantity || 0} {purchase.unit || ''}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-lg font-semibold text-green-600">₹{purchase.selling_price || 0}</p>
                         <p className="text-sm text-gray-500">
                           {new Date(purchase.purchase_date || purchase.createdAt).toLocaleDateString()}
                         </p>
+                      </div>
+                    </div>
+                    
+                    {/* Supply Chain Journey Summary */}
+                    <div className="bg-gray-50 rounded-lg p-3 mb-3">
+                      <p className="text-xs font-semibold text-gray-700 mb-2">Supply Chain Journey</p>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                          <span className="text-gray-600">Farmer:</span>
+                          <span className="ml-1 font-medium text-gray-900">{purchase.farmer?.name || 'N/A'}</span>
+                          <span className="text-gray-500 text-xs ml-1">({purchase.farmer?.location || 'N/A'})</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-600">Transporter:</span>
+                          <span className="ml-1 font-medium text-gray-900">{purchase.transporter || 'N/A'}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-600">Warehouse:</span>
+                          <span className="ml-1 font-medium text-gray-900">{purchase.warehouse || 'N/A'}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-600">Retailer:</span>
+                          <span className="ml-1 font-medium text-gray-900">{purchase.retailer || 'N/A'}</span>
+                        </div>
                       </div>
                     </div>
                     
@@ -631,7 +692,7 @@ const TrackPage = () => {
                           }}
                           className="text-green-600 hover:text-green-700 text-sm font-medium"
                         >
-                          Track Journey →
+                          Track Full Journey →
                         </button>
                       </div>
                     )}
@@ -648,9 +709,7 @@ const TrackPage = () => {
           <div className="text-blue-700 space-y-2">
             <p><strong>Track by Product Code:</strong></p>
             <p>• Product Codes are provided when you purchase items from retailers</p>
-            <p>• You can also get Product Codes from receipts or confirmation emails</p>
             <p>• Product Codes are unique identifiers starting with 'PC' followed by numbers and letters</p>
-            <p>• If you can't find your Product Code, contact the retailer where you purchased the item</p>
             <p className="mt-4"><strong>Track by Phone Number:</strong></p>
             <p>• Enter the phone number used during purchase to view all your bought products</p>
             <p>• Click "Track Journey" on any product to see its detailed supply chain journey</p>

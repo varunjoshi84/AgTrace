@@ -33,9 +33,20 @@ const AdminDashboard = () => {
       setTransports(transportsResponse.data || []);
       setWarehouses(warehousesResponse.data || []);
       setRetails(retailsResponse.data || []);
+      setError(''); // Clear any previous errors
     } catch (err) {
-      setError('Failed to load admin data');
-      console.error('Load admin data error:', err);
+      // For new systems with no data, don't show error - just set empty state
+      if (err.response?.status === 404) {
+        setUsers([]);
+        setProducts([]);
+        setTransports([]);
+        setWarehouses([]);
+        setRetails([]);
+      } else {
+        // Only show error for actual failures
+        setError('Failed to load admin data');
+        console.error('Load admin data error:', err);
+      }
     } finally {
       setLoading(false);
     }

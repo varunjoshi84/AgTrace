@@ -7,6 +7,33 @@ const User = require('../models/User');
 const router = express.Router();
 
 /**
+ * GET /api/admin/check-roles
+ * Check which roles exist in database (temporary debug endpoint)
+ */
+router.get('/check-roles', async (req, res, next) => {
+  try {
+    const allUsers = await User.find({}, { name: 1, email: 1, role: 1 }).lean();
+    
+    const roleStats = {
+      total: allUsers.length,
+      byRole: {
+        Farmer: allUsers.filter(u => u.role === 'Farmer').length,
+        Transporter: allUsers.filter(u => u.role === 'Transporter').length,
+        Warehouse: allUsers.filter(u => u.role === 'Warehouse').length,
+        Retailer: allUsers.filter(u => u.role === 'Retailer').length,
+        Customer: allUsers.filter(u => u.role === 'Customer').length,
+        Admin: allUsers.filter(u => u.role === 'Admin').length
+      },
+      users: allUsers
+    };
+    
+    res.json(roleStats);
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
  * GET /api/admin/users
  * List all users (Admin only)
  */

@@ -44,9 +44,22 @@ export default function CustomerDashboard() {
         organicProducts,
         trackedProducts
       });
+      setError(''); // Clear any previous errors
     } catch (err) {
-      setError('Failed to load purchase history');
-      console.error('Load customer data error:', err);
+      // For new users with no data, don't show error - just set empty state
+      if (err.response?.status === 404 || err.response?.data?.message?.includes('No purchases found')) {
+        setPurchases([]);
+        setStats({
+          totalPurchases: 0,
+          verifiedProducts: 0,
+          organicProducts: 0,
+          trackedProducts: 0
+        });
+      } else {
+        // Only show error for actual failures
+        setError('Failed to load purchase history');
+        console.error('Load customer data error:', err);
+      }
     } finally {
       setLoading(false);
     }

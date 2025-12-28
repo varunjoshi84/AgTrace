@@ -13,7 +13,11 @@ const productSchema = new mongoose.Schema({
     enum: ['harvested', 'in_transport', 'in_warehouse', 'in_retail', 'sold'],
     default: 'harvested'
   },
-  isActive: { type: Boolean, default: true } // For tracking active products
+  isActive: { type: Boolean, default: true }, // For tracking active products
+  assignedTransporter: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Farmer assigns specific transporter
+  assignedWarehouse: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Farmer assigns specific warehouse
+  assignedRetailer: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Warehouse assigns specific retailer
+  customerPhone: { type: String, index: true } // Customer phone when product is sold
 }, { timestamps: true });
 
 // Auto-generate productCode and ensure currentStage before saving

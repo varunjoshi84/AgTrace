@@ -35,7 +35,12 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'fallback-secret-for-dev',
   resave: false,
   saveUninitialized: false,
-  cookie: { httpOnly: true }
+  cookie: { 
+    httpOnly: true,
+    secure: false, // Set to true in production with HTTPS
+    sameSite: 'lax', // Allow cookies to be sent with cross-origin requests
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
 }));
 
 app.use(requestLogger);

@@ -46,9 +46,22 @@ export default function SupplierDashboard() {
         totalDistance,
         onTimeDelivery: onTimeDelivery.toFixed(1)
       });
+      setError(''); // Clear any previous errors
     } catch (err) {
-      setError('Failed to load transporter data');
-      console.error('Load transporter data error:', err);
+      // For new users with no data, don't show error - just set empty state
+      if (err.response?.status === 404 || err.response?.data?.message?.includes('No shipments found')) {
+        setShipments([]);
+        setStats({
+          activeShipments: 0,
+          deliveredToday: 0,
+          totalDistance: 0,
+          onTimeDelivery: 0
+        });
+      } else {
+        // Only show error for actual failures
+        setError('Failed to load transporter data');
+        console.error('Load transporter data error:', err);
+      }
     } finally {
       setLoading(false);
     }

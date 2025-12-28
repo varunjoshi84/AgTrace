@@ -11,6 +11,28 @@ const eventBus = require('../events/eventBus');
 const router = express.Router();
 
 /**
+ * GET /api/retail/assigned-products
+ * Get products assigned to current retailer
+ */
+router.get('/assigned-products', auth, role('Retailer'), async (req, res, next) => {
+  try {
+    const Product = require('../models/Product');
+    const assignedProducts = await Product.find({ 
+      assignedRetailer: req.session.user.id,
+      currentStage: 'in_retail',
+      isActive: true 
+    })
+    .populate('farmer', 'name location')
+    .populate('assignedTransporter', 'name email')
+    .populate('assignedWarehouse', 'name email');
+
+    res.json(assignedProducts);
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
  * GET /api/retail
  * List retail entries (filtered by role)
  */
@@ -162,20 +184,26 @@ router.put(
  */
 router.put('/:id/sell-out', auth, role('Retailer', 'Admin'), async (req, res, next) => {
   try {
+    const { customerPhone } = req.body;
+    
     const retail = await Retail.findById(req.params.id);
     if (!retail) {
       return res.status(404).json({ message: 'Retail entry not found' });
     }
     
-    // Update retail stock to 0 and mark product as sold
+    // Update retail stock to 0, add customer phone
     retail.stock = 0;
+    if (customerPhone) {
+      retail.customer_phone = customerPhone;
+    }
     await retail.save();
     
-    // Move product to sold stage
+    // Move product to sold stage and record customer phone
     const Product = require('../models/Product');
     await Product.findByIdAndUpdate(retail.product, { 
       currentStage: 'sold',
-      isActive: false // Mark as inactive when sold
+      isActive: false, // Mark as inactive when sold
+      customerPhone: customerPhone || null
     });
 
     eventBus.emit('status:updated', { productId: retail.product, type: 'retail' });

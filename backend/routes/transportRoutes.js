@@ -9,6 +9,74 @@ const eventBus = require('../events/eventBus');
 const router = express.Router();
 
 /**
+ * GET /api/transport/assigned-products
+ * Get products assigned to current transporter
+ */
+router.get('/assigned-products', auth, role('Transporter'), async (req, res, next) => {
+  try {
+    const assignedProducts = await Product.find({ 
+      assignedTransporter: req.session.user.id,
+      currentStage: { $in: ['harvested', 'in_transport'] },
+      isActive: true 
+    }).populate('farmer').populate('assignedWarehouse', 'name email');
+
+    res.json(assignedProducts);
+  } catch (err) {
+    console.error('Error fetching transporter assigned products:', err);
+    next(err);
+  }
+});
+
+/**
+ * PUT /api/transport/:productId/pickup
+ * Mark product as picked up (in transit)
+ */
+router.put('/:productId/pickup', auth, role('Transporter'), async (req, res, next) => {
+  try {
+    const product = await Product.findOne({
+      _id: req.params.productId,
+      assignedTransporter: req.session.user.id
+    });
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found or not assigned to you' });
+    }
+
+    product.currentStage = 'in_transport';
+    await product.save();
+
+    res.json({ message: 'Product marked as in transit', product });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * PUT /api/transport/:productId/deliver
+ * Mark product as delivered to warehouse
+ */
+router.put('/:productId/deliver', auth, role('Transporter'), async (req, res, next) => {
+  try {
+    const product = await Product.findOne({
+      _id: req.params.productId,
+      assignedTransporter: req.session.user.id,
+      currentStage: 'in_transport'
+    });
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found, not assigned to you, or not in transit' });
+    }
+
+    product.currentStage = 'in_warehouse';
+    await product.save();
+
+    res.json({ message: 'Product delivered to warehouse', product });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
  * GET /api/transport
  * List transport entries (filtered by role)
  */
@@ -23,6 +91,73 @@ router.get('/', auth, role('Transporter', 'Admin'), async (req, res, next) => {
     
     const entries = await Transport.find(query).populate('product').sort({ createdAt: -1 });
     res.json(entries);
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * GET /api/transport/assigned-products
+ * Get products assigned to current transporter
+ */
+router.get('/assigned-products', auth, role('Transporter'), async (req, res, next) => {
+  try {
+    const assignedProducts = await Product.find({ 
+      assignedTransporter: req.session.user.id,
+      currentStage: { $in: ['harvested', 'in_transport'] },
+      isActive: true 
+    }).populate('farmer').populate('assignedWarehouse', 'name email');
+
+    res.json(assignedProducts);
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * PUT /api/transport/:productId/pickup
+ * Mark product as picked up (in transit)
+ */
+router.put('/:productId/pickup', auth, role('Transporter'), async (req, res, next) => {
+  try {
+    const product = await Product.findOne({
+      _id: req.params.productId,
+      assignedTransporter: req.session.user.id
+    });
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found or not assigned to you' });
+    }
+
+    product.currentStage = 'in_transport';
+    await product.save();
+
+    res.json({ message: 'Product marked as in transit', product });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * PUT /api/transport/:productId/deliver
+ * Mark product as delivered to warehouse
+ */
+router.put('/:productId/deliver', auth, role('Transporter'), async (req, res, next) => {
+  try {
+    const product = await Product.findOne({
+      _id: req.params.productId,
+      assignedTransporter: req.session.user.id,
+      currentStage: 'in_transport'
+    });
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found, not assigned to you, or not in transit' });
+    }
+
+    product.currentStage = 'in_warehouse';
+    await product.save();
+
+    res.json({ message: 'Product delivered to warehouse', product });
   } catch (err) {
     next(err);
   }
